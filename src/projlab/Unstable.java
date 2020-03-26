@@ -17,7 +17,7 @@ public class Unstable extends Field {
 	}
 	
 	public int GetMaxPlayer() {
-		return 0;
+		return maxPlayer;
 	}
 	
 }

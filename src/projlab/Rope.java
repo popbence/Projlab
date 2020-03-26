@@ -1,6 +1,6 @@
 package projlab;
 
-public class Rope {
+public class Rope extends Item{
 	public void Use() {
 		
 	}

@@ -56,8 +56,7 @@ public abstract class Player {
 	}
 	
 	public Field GetField() {
-		Field f = new Field();
-		return f;
+		return field;
 	}
 	
 	public void SetDrowning(int number) {
