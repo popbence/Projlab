@@ -1,5 +1,7 @@
 package projlab;
 
-public class Suit {
-
+public class Suit extends Item{
+	public void Use() {
+		
+	}
 }

@@ -1,5 +1,9 @@
 package projlab;
 
-public class Part {
-
+public class Part extends Item {
+	private int type;
+	
+	public void Use() {
+		
+	}
 }

@@ -1,5 +1,7 @@
 package projlab;
 
-public class Shovel {
-
+public class Shovel extends Item{
+	public void Use() {
+		
+	}
 }
