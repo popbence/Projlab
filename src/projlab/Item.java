@@ -3,7 +3,7 @@ package projlab;
 public abstract class Item {
 	private Player player;
 	
-	private String objName;
+	protected String objName;
 	
 	public abstract void Use();
 	

@@ -8,7 +8,7 @@ public abstract class Player {
 	private int drowning;
 	private Field field;
 	private ArrayList<Item> items;
-	private String objName;
+	protected String objName;
 	
 	public void Step(int dir) {
 		
