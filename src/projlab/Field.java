@@ -8,6 +8,7 @@ public class Field {
 	private ArrayList<Player> players;
 	private Item item;
 	private ArrayList<Field> neighbours;
+	private String objName;
 	
 	public void AddPlayer(Player p) {}
 	

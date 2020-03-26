@@ -3,6 +3,7 @@ package projlab;
 public class Unstable extends Field {
 	private int maxPlayer;
 	private boolean flipped;
+	private String objName;
 	
 	public void Flip() {
 		

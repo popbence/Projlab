@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Controller {
 	private ArrayList<Field> fields;
 	private ArrayList<Player> players;
+	private String objName;
 	
 	public void Init(){}
 	
