@@ -1,5 +1,5 @@
 package projlab;
 
-public class Eskimo {
-
+public class Eskimo extends Player{
+	public void UseAbility(int dir) {}
 }
