@@ -102,6 +102,7 @@ public abstract class Player {
 	}
 
 	public int GetDrowning(){
+		System.out.println(objName + ".GetDrowning()");
 		return drowning;
 	}
 	
