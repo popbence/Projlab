@@ -7,7 +7,7 @@ public class Field {
 	private Igloo igloo;
 	private ArrayList<Player> players = new ArrayList<Player>();
 	private Item item;
-	private ArrayList<Field> neighbours;
+	private ArrayList<Field> neighbours = new ArrayList<Field>(); //kelett, hogy a tesztben fusson a .size() miatt
 	private String objName;
 	
 	public void AddPlayer(Player p) {
