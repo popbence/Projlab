@@ -94,6 +94,10 @@ public abstract class Player {
 	public void SetDrowning(int number) {
 		System.out.println(objName + ".SetDrowning(" + number +")");
 		switch(number) {
+		case 0:
+			if(drowning != -1)
+				drowning = 0;
+		break;
 		case 1: 
 			if(drowning == 0)
 				drowning = 1;
@@ -101,6 +105,9 @@ public abstract class Player {
 		case 2:
 			if(drowning == 1)
 				drowning = 2;
+			else
+				if(drowning == 2)
+					Controller.GameOver();
 		break;
 		case -1:
 			drowning = -1;
