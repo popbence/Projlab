@@ -100,6 +100,10 @@ public abstract class Player {
 		if(number == -1)
 			drowning = -1;
 	}
+
+	public int GetDrowning(){
+		return drowning;
+	}
 	
 	public void DeleteItem(Item item) {
 		System.out.println(objName + ".DeleteItem(" + item.GetObjName() +")");
