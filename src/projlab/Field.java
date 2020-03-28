@@ -11,19 +11,22 @@ public class Field {
 	private String objName;
 	
 	public void AddPlayer(Player p) {
-		System.out.println(objName + ".AddPlayer(" + p.GetObjName() +")");
+		Writer.Write(objName + ".AddPlayer(" + p.GetObjName() +")");
+		Writer.Deregister(objName);
 		
 		players.add(p);
 	}
 	
 	public Field GetNeighbour(int dir) {
-		System.out.println(objName + ".GetNeighbour(" + dir +")");
+		Writer.Write(objName + ".GetNeighbour(" + dir +")");
+		Writer.Deregister(objName);
 		
 		return neighbours.get(dir);
 	}
 	
 	public void RemovePlayer(Player p) {
-		System.out.println(objName + ".RemovePlayer(" + p.GetObjName() +")");
+		Writer.Write(objName + ".RemovePlayer(" + p.GetObjName() +")");
+		Writer.Deregister(objName);
 		
 		players.remove(p);
 	}
@@ -66,7 +69,7 @@ public class Field {
 	}
 	
 	public void SetNeighbour(int dir, Field f) {
-		System.out.println(objName + ".SetNeighbour(" + dir + "," + f.GetObjName() + ")");
+		Writer.Write(objName + ".SetNeighbour(" + dir + "," + f.GetObjName() + ")");
 		
 		int n = neighbours.size();
 		for(int i = 0; i < (dir + 1 - n); i++) {

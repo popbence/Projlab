@@ -11,7 +11,7 @@ public abstract class Player {
 	protected String objName;
 	
 	public void Step(int dir) {
-		System.out.println(objName + ".Step("+dir+")");
+		Writer.Write(objName + ".Step("+dir+")");
 		Field f2 = field.GetNeighbour(dir);
 		if(f2 != null) {
 			field.RemovePlayer(this);
@@ -43,7 +43,7 @@ public abstract class Player {
 	}
 	
 	public void AddWork(int w) {
-		System.out.println(objName + ".AddWork(" + w +")");
+		Writer.Write(objName + ".AddWork(" + w +")");
 		work += w;
 		if(work < 0)
 			work = 0;

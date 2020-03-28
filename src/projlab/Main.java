@@ -7,8 +7,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
+	static Writer writer;
 	
 	public static void main(String[] args){
+		writer = Writer.Writer();
         Welcomer();
 	}
 	
@@ -93,59 +95,120 @@ public class Main {
 		e.SetField(f1);
 		f1.AddPlayer(e);
 		f1.SetNeighbour(1, f2);
+		Writer.wipe();
 		System.out.println("test 1:");
 		e.Step(1);
 	}
 	
 	private static void Test2() {
+		System.out.println("initialization steps:");
+		Eskimo e = new Eskimo();
+		Field f1 = new Field();
+		Hole h = new Hole();
+		e.SetObjName("e");
+		f1.SetObjName("f1");
+		h.SetObjName("h");
+		e.SetField(f1);
+		f1.SetNeighbour(1, h);
+		Writer.wipe();
+		System.out.println("test 1:");
+		e.Step(1);
 		
 	}
 	
 	private static void Test3() {
+		System.out.println("initialization steps:");
+		
+		Writer.wipe();
+		System.out.println("test 1:");
 		
 	}
 	
 	private static void Test4() {
+		System.out.println("initialization steps:");
+		
+		Writer.wipe();
+		System.out.println("test 1:");
 		
 	}
 	
 	private static void Test5() {
+		System.out.println("initialization steps:");
+		
+		Writer.wipe();
+		System.out.println("test 1:");
 		
 	}
 	
 	private static void Test6() {
+		System.out.println("initialization steps:");
+		
+		Writer.wipe();
+		System.out.println("test 1:");
 		
 	}
 	
 	private static void Test7() {
+		System.out.println("initialization steps:");
+		
+		Writer.wipe();
+		System.out.println("test 1:");
 		
 	}
 	
 	private static void Test8() {
+		System.out.println("initialization steps:");
+		
+		Writer.wipe();
+		System.out.println("test 1:");
 		
 	}
 	
 	private static void Test9() {
+		System.out.println("initialization steps:");
+		
+		Writer.wipe();
+		System.out.println("test 1:");
 		
 	}
 	
 	private static void Test10() {
+		System.out.println("initialization steps:");
+		
+		Writer.wipe();
+		System.out.println("test 1:");
 		
 	}
 	
 	private static void Test11() {
+		System.out.println("initialization steps:");
+		
+		Writer.wipe();
+		System.out.println("test 1:");
 		
 	}
 	
 	private static void Test12() {
+		System.out.println("initialization steps:");
+		
+		Writer.wipe();
+		System.out.println("test 1:");
 		
 	}
 	
 	private static void Test13() {
+		System.out.println("initialization steps:");
+		
+		Writer.wipe();
+		System.out.println("test 1:");
 		
 	}
 	
 	private static void Test14() {
+		System.out.println("initialization steps:");
+		
+		Writer.wipe();
+		System.out.println("test 1:");
 		
 	}
 
