@@ -18,4 +18,12 @@ public class Controller {
 	public void NextRound() {}
 	
 	public void SnowStorm() {}
+	
+	public String GetObjName() {
+		return objName;
+	}
+	
+	public void SetObjName(String name) {
+		objName = name;
+	}
 }

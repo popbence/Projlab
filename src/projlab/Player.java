@@ -67,4 +67,12 @@ public abstract class Player {
 	public void DeleteItem(Item item) {
 		
 	}
+	
+	public String GetObjName() {
+		return objName;
+	}
+	
+	public void SetObjName(String name) {
+		objName = name;
+	}
 }
