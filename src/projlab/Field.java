@@ -5,34 +5,104 @@ import java.util.ArrayList;
 public class Field {
 	private int snow;
 	private Igloo igloo;
-	private ArrayList<Player> players;
+	private ArrayList<Player> players = new ArrayList<Player>();
 	private Item item;
 	private ArrayList<Field> neighbours;
 	private String objName;
 	
-	public void AddPlayer(Player p) {}
+	public void AddPlayer(Player p) {
+		System.out.println(objName + ".AddPlayer(" + p.GetObjName() +")");
+		
+		players.add(p);
+	}
 	
-	public Field GetNeigbour(int dir) {
+	public Field GetNeighbour(int dir) {
+		System.out.println(objName + ".GetNeighbour(" + dir +")");
+		
 		return neighbours.get(dir);
 	}
 	
-	public void RemovePlayer(Player p) {}
+	public void RemovePlayer(Player p) {
+		System.out.println(objName + ".RemovePlayer(" + p.GetObjName() +")");
+		
+		players.remove(p);
+	}
 	
-	public void AddSnow(int s) {}
+	public void AddSnow(int s) {
+		System.out.println(objName + ".AddSnow(" + s +")");
+		
+		if(igloo != null) {
+			boolean destroy  = igloo.Destroy(s);
+			if(destroy) {
+				this.RemoveIgloo();
+			}
+		}
+		
+		snow += s;
+		
+		if(igloo == null) {
+			for(Player p : players) {
+				p.AddTemp(-1);
+			}
+		}
+	}
 	
 	public int GetMaxPlayers() {
+		System.out.println(objName + ".GetMaxPlayers()");
+		
 		return -1;
 	}
 	
-	public void BuildIgloo(Igloo i) {}
+	public void BuildIgloo(Igloo i) {
+		System.out.println(objName + ".UseAbility(" + i.GetObjName() +")");
+		
+		this.igloo = i;
+	}
 	
-	public void RemoveIgloo() {}
+	public void RemoveIgloo() {
+		System.out.println(objName + ".RemoveIgloo()");
+		
+		this.igloo = null;
+	}
 	
-	public void SetNeighbour(int dir, Field f) {}
+	public void SetNeighbour(int dir, Field f) {
+		System.out.println(objName + ".SetNeighbour(" + dir + "," + f.GetObjName() + ")");
+		
+		int n = neighbours.size();
+		for(int i = 0; i < (dir + 1 - n); i++) {
+			if(n == 0) {
+				neighbours.add(null);
+			}
+			if(neighbours.get(i) == null) {
+				neighbours.add(null);
+			}
+		}
+		neighbours.set(dir, f);
+	}
 	
-	public void RemoveItem() {}
+	public void RemoveItem() {
+		System.out.println(objName + ".RemoveItem()");
+		
+		this.item = null;
+	}
 	
 	public Item GetItem() {
+		System.out.println(objName + ".GetItem()");
+		
 		return item;
+	}
+	
+	public ArrayList<Player> GetPlayers(){
+		System.out.println(objName + ".GetPlayers()");
+		
+		return players;
+	}
+	
+	public String GetObjName() {
+		return objName;
+	}
+	
+	public void SetObjName(String name) {
+		objName = name;
 	}
 }

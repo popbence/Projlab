@@ -5,7 +5,20 @@ public class Igloo {
 	private String objName;
 	
 	public boolean Destroy(int s) {
-		return true;
+		System.out.println(objName + ".Destroy(" + s +")");
+		health -= s;
+		if(health <= 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	public String GetObjName() {
+		return objName;
+	}
+	
+	public void SetObjName(String name) {
+		objName = name;
 	}
 	
 }
