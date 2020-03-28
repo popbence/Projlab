@@ -11,6 +11,7 @@ public abstract class Player {
 	protected String objName;
 	
 	public void Step(int dir) {
+		System.out.println(objName + "Step("+dir+")");
 		
 	}
 	
@@ -74,5 +75,9 @@ public abstract class Player {
 	
 	public void SetObjName(String name) {
 		objName = name;
+	}
+	
+	public int GetWork() {
+		return work;
 	}
 }
