@@ -7,7 +7,7 @@ public class Part extends Item {
 	
 	public void Use() {
 		System.out.println(objName + ".Use()");
-		Player p = this.GetPlayer().
+		Player p = this.GetPlayer();
 		Field f = p.GetField();
 		ArrayList<Player> playersOnField = new ArrayList<Player>();
 		playersOnField = f.GetPlayers();

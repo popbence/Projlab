@@ -12,7 +12,7 @@ public abstract class Player {
 	
 	public void Step(int dir) {
 		System.out.println(objName + ".Step("+dir+")");
-		Field f2 = field.GetNeigbour(dir);
+		Field f2 = field.GetNeighbour(dir);
 		if(f2 != null) {
 			field.RemovePlayer(this);
 			f2.AddPlayer(this);
@@ -31,7 +31,7 @@ public abstract class Player {
 	public abstract void UseAbility(int dir);
 	
 	public void AddItem(Item item) {
-		System.out.println(objName + ".AddItem("+ item.GetObjName +")");
+		System.out.println(objName + ".AddItem("+ item.GetObjName() +")");
 		items.add(item);
 	}
 	
@@ -82,7 +82,7 @@ public abstract class Player {
 	}
 	
 	public void SetField(Field f) {
-		System.out.println(objName + ".SetField(" field.GetObjName +")");
+		System.out.println(objName + ".SetField(" + f.GetObjName() +")");
 		this.field = f;
 	}
 	
@@ -102,7 +102,7 @@ public abstract class Player {
 	}
 	
 	public void DeleteItem(Item item) {
-		System.out.println(objName + ".DeleteItem(" + item.GetObjName +")");
+		System.out.println(objName + ".DeleteItem(" + item.GetObjName() +")");
 		items.remove(item);
 	}
 	

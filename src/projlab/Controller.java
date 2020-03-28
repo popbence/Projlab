@@ -49,7 +49,7 @@ public class Controller {
 		}
 	}
 	
-	public ArrayList<Player> GetPlayers(){
+	public static ArrayList<Player> GetPlayers(){
 		return players;
 	}
 	
