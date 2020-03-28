@@ -93,12 +93,20 @@ public abstract class Player {
 	
 	public void SetDrowning(int number) {
 		System.out.println(objName + ".SetDrowning(" + number +")");
-		if(drowning == 0 && number == 1)
-			drowning = 1;
-		if(drowning == 1 && number == 2)
-			drowning = 2;
-		if(number == -1)
+		switch(number) {
+		case 1: 
+			if(drowning == 0)
+				drowning = 1;
+		break;
+		case 2:
+			if(drowning == 1)
+				drowning = 2;
+		break;
+		case -1:
 			drowning = -1;
+		break;
+		default: break;
+		}
 	}
 
 	public int GetDrowning(){
