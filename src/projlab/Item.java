@@ -22,7 +22,7 @@ public abstract class Item {
 	 * @param p The player
 	 */
 	public void SetPlayer(Player p) {
-		System.out.println(objName + ".SetPlayer(" + p.GetObjName()+")");
+		Writer.Write(objName + ".SetPlayer(" + p.GetObjName()+")");
 		player = p;
 	}
 	
@@ -31,7 +31,7 @@ public abstract class Item {
 	 * @return player
 	 */
 	public Player GetPlayer() {
-		System.out.println(objName + ".GetPlayer()");
+		Writer.Write(objName + ".GetPlayer()");
 		return player;
 	}
 	

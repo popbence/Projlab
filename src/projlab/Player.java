@@ -60,7 +60,7 @@ public abstract class Player {
 	 * @param item The index of the item which the player wants to use
 	 */
 	public void UseItem(int item) {
-		System.out.println(objName + ".UseItem(" + item +")");
+		Writer.Write(objName + ".UseItem(" + item +")");
 		Item i = items.get(item);
 		i.Use();
 		this.AddWork(-1);
@@ -77,7 +77,7 @@ public abstract class Player {
 	 * @param item The item that will be added to the inventory
 	 */
 	public void AddItem(Item item) {
-		System.out.println(objName + ".AddItem("+ item.GetObjName() +")");
+		Writer.Write(objName + ".AddItem("+ item.GetObjName() +")");
 		items.add(item);
 	}
 	
@@ -86,7 +86,7 @@ public abstract class Player {
 	 * @param t The amount of the temperature points being added
 	 */
 	public void AddTemp(int t) {
-		System.out.println(objName + ".AddTemp(" + t +")");
+		Writer.Write(objName + ".AddTemp(" + t +")");
 		temperature += t;
 		if(temperature <= 0)
 			Controller.GameOver();
@@ -107,7 +107,7 @@ public abstract class Player {
 	 * Set the temperature to 1
 	 */
 	public void SetTempToOne() {
-		System.out.println(objName + ".SetTempToOne()");
+		Writer.Write(objName + ".SetTempToOne()");
 		temperature = 1;
 	}
 	
@@ -116,7 +116,7 @@ public abstract class Player {
 	 * @param w The set amount
 	 */
 	public void SetWork(int w) {
-		System.out.println(objName + ".SetWork("+w+")");
+		Writer.Write(objName + ".SetWork("+w+")");
 		work = w;
 	}
 	
@@ -124,7 +124,7 @@ public abstract class Player {
 	 * Removes 1 snow pile from the field where the player at
 	 */
 	public void Dig() {
-		System.out.println(objName +".Dig()");
+		Writer.Write(objName +".Dig()");
 		field.AddSnow(-1);
 		this.AddWork(-1);
 	}
@@ -133,7 +133,7 @@ public abstract class Player {
 	 * The player picks up the item
 	 */
 	public void Pick() {
-		System.out.println(objName + ".Pick()");
+		Writer.Write(objName + ".Pick()");
 		Item i = field.GetItem();
 		if (i != null) {
 			field.RemoveItem();
@@ -146,7 +146,7 @@ public abstract class Player {
 	 * The player ends his own turn
 	 */
 	public void EndRound() {
-		System.out.println(objName + ".EndRound()");
+		Writer.Write(objName + ".EndRound()");
 		work = 0;
 		Controller.RoundCheck();
 	}
@@ -156,7 +156,7 @@ public abstract class Player {
 	 * @param f The position
 	 */
 	public void SetField(Field f) {
-		System.out.println(objName + ".SetField(" + f.GetObjName() +")");
+		Writer.Write(objName + ".SetField(" + f.GetObjName() +")");
 		this.field = f;
 	}
 	
@@ -165,7 +165,7 @@ public abstract class Player {
 	 * @return field
 	 */
 	public Field GetField() {
-		System.out.println(objName + ".GetField()");
+		Writer.Write(objName + ".GetField()");
 		return field;
 	}
 	
@@ -174,7 +174,7 @@ public abstract class Player {
 	 * @param number The value
 	 */
 	public void SetDrowning(int number) {
-		System.out.println(objName + ".SetDrowning(" + number +")");
+		Writer.Write(objName + ".SetDrowning(" + number +")");
 		switch(number) {
 		case 0:
 			if(drowning != -1)
@@ -203,7 +203,7 @@ public abstract class Player {
 	 * @return drowning
 	 */
 	public int GetDrowning(){
-		System.out.println(objName + ".GetDrowning()");
+		Writer.Write(objName + ".GetDrowning()");
 		return drowning;
 	}
 	
@@ -212,7 +212,7 @@ public abstract class Player {
 	 * @param item The item that will be removed
 	 */
 	public void DeleteItem(Item item) {
-		System.out.println(objName + ".DeleteItem(" + item.GetObjName() +")");
+		Writer.Write(objName + ".DeleteItem(" + item.GetObjName() +")");
 		items.remove(item);
 	}
 	
@@ -239,7 +239,7 @@ public abstract class Player {
 	 * @return work
 	 */
 	public int GetWork() {
-		System.out.println(objName + ".GetWork()");
+		Writer.Write(objName + ".GetWork()");
 		return work;
 	}
 	
@@ -248,7 +248,7 @@ public abstract class Player {
 	 * @return items
 	 */
 	public ArrayList<Item> GetItems(){
-		System.out.println(objName + ".GetItems()");
+		Writer.Write(objName + ".GetItems()");
 		return items;
 	}
 }

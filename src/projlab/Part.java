@@ -16,7 +16,7 @@ public class Part extends Item {
 	 * When called the method check the conditions if the players have won
 	 */
 	public void Use() {
-		System.out.println(objName + ".Use()");
+		Writer.Write(objName + ".Use()");
 		Player p = this.GetPlayer();
 		Field f = p.GetField();
 		ArrayList<Player> playersOnField = new ArrayList<Player>();
