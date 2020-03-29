@@ -18,7 +18,8 @@ public class Rope extends Item{
 	
 					for (Player p : players) {
 						if (p.GetDrowning() == 1){
-							fi.RemovePlayer(p);
+							fi.RemovePlayer(p); //A kimentett jatekosoknak 0-ra kellene allitani a drowning erteket
+							p.SetDrowning(0);
 							f1.AddPlayer(p);
 						}
 					}
