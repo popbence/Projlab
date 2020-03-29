@@ -8,7 +8,7 @@ public class Field {
 	private ArrayList<Player> players = new ArrayList<Player>();
 	private Item item;
 	private ArrayList<Field> neighbours = new ArrayList<Field>(); //kelett, hogy a tesztben fusson a .size() miatt
-	private String objName;
+	protected String objName;
 	
 	public void AddPlayer(Player p) {
 		Writer.Write(objName + ".AddPlayer(" + p.GetObjName() +")");

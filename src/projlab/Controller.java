@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Controller {
 	private static ArrayList<Field> fields;
-	private static ArrayList<Player> players;
+	private static ArrayList<Player> players = new ArrayList<Player>();
 	private static String objName;
 	
 	public void Init(){}
@@ -59,5 +59,9 @@ public class Controller {
 	
 	public void SetObjName(String name) {
 		objName = name;
+	}
+	
+	public void AddPlayer(Player p) {
+		players.add(p);
 	}
 }

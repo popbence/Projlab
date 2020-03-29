@@ -1,7 +1,6 @@
 package projlab;
 
 public class Hole extends Field{
-	private String objName;
 	
 	public void AddPlayer(Player p) {
 		System.out.println(objName + ".AddPlayer(" + p.GetObjName() +")");

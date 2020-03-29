@@ -99,10 +99,13 @@ public class Main {
 		System.out.println("test 1:");
 		e.Step(1);
 	}
-	
+	// Fel lett véve egy Controller példány, és hozzáadtam a Controllerhez az Eszkimót
 	private static void Test2() {
+		Controller c = new Controller();
+		c.SetObjName("c");
 		System.out.println("initialization steps:");
 		Eskimo e = new Eskimo();
+		c.AddPlayer(e);
 		Field f1 = new Field();
 		Hole h = new Hole();
 		e.SetObjName("e");

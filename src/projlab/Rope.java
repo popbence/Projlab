@@ -12,15 +12,17 @@ public class Rope extends Item{
 		while (has_more_neighbours) {
 			try {
 				Field fi = f1.GetNeighbour(i);
-				ArrayList<Player> players = fi.GetPlayers();
-
-				for (Player p : players) {
-					if (p.GetDrowning() == 1){
-						fi.RemovePlayer(p);
-						f1.AddPlayer(p);
+				// Ide azért kellett egy if, mert lehet null az egyik szomszéd
+				if(fi != null){
+					ArrayList<Player> players = fi.GetPlayers();
+	
+					for (Player p : players) {
+						if (p.GetDrowning() == 1){
+							fi.RemovePlayer(p);
+							f1.AddPlayer(p);
+						}
 					}
 				}
-
 				i++;
 			} catch (IndexOutOfBoundsException e){
 				has_more_neighbours = false;
