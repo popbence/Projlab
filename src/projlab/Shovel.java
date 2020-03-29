@@ -1,6 +1,6 @@
 package projlab;
 
-public class Shovel extends Item{
+public class Shovel extends Item{ // TODO: Comments
 	public void Use() {
 		String methodCall = objName + "." + Main.GetMethodName() + "()";
 		System.out.println(methodCall);

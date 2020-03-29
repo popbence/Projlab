@@ -2,7 +2,7 @@ package projlab;
 
 import java.util.ArrayList;
 
-public class Rope extends Item{
+public class Rope extends Item{ // TODO: Comments
 	public void Use() {
 		String methodCall = objName + "." + Main.GetMethodName() + "()";
 		System.out.println(methodCall);
@@ -12,7 +12,7 @@ public class Rope extends Item{
 		while (has_more_neighbours) {
 			try {
 				Field fi = f1.GetNeighbour(i);
-				// Ide azért kellett egy if, mert lehet null az egyik szomszéd
+				// Ide azï¿½rt kellett egy if, mert lehet null az egyik szomszï¿½d
 				if(fi != null){
 					ArrayList<Player> players = fi.GetPlayers();
 	

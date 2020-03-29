@@ -2,12 +2,13 @@ package projlab;
 
 import java.util.ArrayList;
 
-public class Unstable extends Field {
+public class Unstable extends Field { // TODO: Comments
 	private int maxPlayer;
 	private boolean flipped;
 	
 	public void Flip() {
-		//TODO: print
+		Writer.Write(objName + "." + Main.GetMethodName() + "()");
+
 		flipped = !flipped;
 
 		if (flipped) {
@@ -21,7 +22,6 @@ public class Unstable extends Field {
 	
 	public void AddPlayer(Player p) {
 		super.AddPlayer(p); // should include the method call print
-		//TODO: flipped case, does Field.AddPlayer(p) need SetField?
 		if (flipped){
 			p.SetTempToOne();
 			p.SetDrowning(1);
@@ -31,10 +31,11 @@ public class Unstable extends Field {
 	}
 	
 	public void RemovePlayer(Player p) {
-		// TODO
+		super.RemovePlayer(p); // should include the method call print
 	}
 	
 	public int GetMaxPlayer() {
+		Writer.Write(objName + "." + Main.GetMethodName() + "()");
 		return maxPlayer;
 	}
 	
