@@ -12,7 +12,9 @@ public class Food extends Item{
 		Writer.Write(objName + ".Use()");
 		Writer.Deregister(objName);
 		Writer.DummyGive("d");
+		
 		Player p = this.GetPlayer();
+		
 		Writer.Deregister("d");
 		p.AddTemp(1);
 		p.DeleteItem(this);

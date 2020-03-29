@@ -5,8 +5,17 @@ import java.util.ArrayList;
 public class Rope extends Item{ // TODO: Comments
 	public void Use() {
 		Writer.Write(objName + ".Use()");
-
-		Field f1 = GetPlayer().GetField();
+		
+		Writer.Deregister(objName);
+		Writer.DummyGive("d");
+		
+		Player player = this.GetPlayer();
+		
+		Writer.Deregister("d");
+		
+		Field f1 = player.GetField();
+		
+		
 		Writer.Deregister("e");
 		int i = 0; boolean has_more_neighbours = true;
 		while (has_more_neighbours) {

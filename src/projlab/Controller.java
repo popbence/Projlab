@@ -48,10 +48,13 @@ public class Controller {
 				}
 			}
 			if(allWorkZero) {
+				Writer.Deregister(objName);
+				Writer.DummyGive("d");
 				NextRound();
 			}
 		}
-		Writer.Deregister(objName);
+		if(!activateNextRound)
+			Writer.Deregister(objName);
 	}
 	/**
 	 * Ends the game if a player has died
@@ -76,9 +79,11 @@ public class Controller {
 	 */
 	public static void NextRound() {
 		Writer.Write(objName + ".NextRound()");
-		/**
-		 * Asks the user if there should be a snowstorm in the beginning of the next turn
-		 */
+		
+		Writer.Deregister(objName);
+		Writer.DummyGive("d");
+		//Asks the user if there should be a snowstorm in the beginning of the next turn
+		 
 		boolean snowStorm = false;
 		try {
 			System.out.print("Do you want a snowstorm?(Y/N)");
@@ -92,7 +97,10 @@ public class Controller {
 		}
 		if(snowStorm) {
 			SnowStorm();
+			Writer.Deregister("d");
 		}
+		
+		
 		
 		for(Player p : players ) {
 			p.AddWork(4);

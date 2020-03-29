@@ -19,6 +19,7 @@ public class Hole extends Field{
 		p.SetDrowning(1);
 		p.EndRound();
 		Writer.Deregister(objName);
+		
 	}
 	
 	/**

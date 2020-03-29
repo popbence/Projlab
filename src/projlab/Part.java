@@ -17,7 +17,14 @@ public class Part extends Item {
 	 */
 	public void Use() {
 		Writer.Write(objName + ".Use()");
+		
+		Writer.Deregister(objName);
+		Writer.DummyGive("d");
+		
 		Player p = this.GetPlayer();
+		
+		Writer.Deregister("d");
+		
 		Field f = p.GetField();
 		Writer.Deregister("e");
 		ArrayList<Player> playersOnField = new ArrayList<Player>();
@@ -34,6 +41,6 @@ public class Part extends Item {
 		}
 		if(j == 3)
 			Controller.Win();
-		Writer.Deregister(objName);
+		
 	}
 }

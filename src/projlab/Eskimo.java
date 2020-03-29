@@ -13,9 +13,15 @@ public class Eskimo extends Player{
 	 */
 	public void UseAbility(int dir) {
 		Writer.Write(objName + ".UseAbility(" + dir +")");
+		Writer.Deregister(objName);
+		Writer.DummyGive("d");
 		
 		Igloo i = new Igloo();
-		this.GetField().BuildIgloo(i);
+		Field f = this.GetField();
+		
+		Writer.Deregister("e");
+		
+		f.BuildIgloo(i);
 		this.AddWork(-1);
 	}
 }

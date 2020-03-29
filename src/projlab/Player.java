@@ -152,8 +152,13 @@ public abstract class Player {
 		if (i != null) {
 			field.RemoveItem();
 			i.SetPlayer(this);
+			
+			Writer.Deregister(objName); //
+			Writer.DummyGive("d");
+			
 			this.AddWork(-1);
 		}
+		
 	}
 	
 	/**
