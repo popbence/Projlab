@@ -209,10 +209,18 @@ public class Main {
 	
 	private static void Test14() {
 		System.out.println("initialization steps:");
-		
+		Eskimo e1 = new Eskimo();
+		Eskimo e2 = new Eskimo();
+		Controller c = new Controller();
+		c.AddPlayer(e1);
+		c.AddPlayer(e2);
+		e1.SetObjName("e1");
+		e2.SetObjName("e2");
+		c.SetObjName("c");
+		e1.SetWork(0);
 		Writer.wipe();
-		System.out.println("test 1:");
-		
+		System.out.println("test 14:");
+		e2.EndRound();
 	}
 
 	public static String GetMethodName(){
