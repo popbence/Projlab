@@ -9,7 +9,7 @@ public class Field {
 	/**
 	 * The layers of snow on the field
 	 */
-	private int snow;
+	private int snow = 0;
 	/**
 	 * The igloo thats built on the field
 	 */
@@ -37,9 +37,9 @@ public class Field {
 	 */
 	public void AddPlayer(Player p) {
 		Writer.Write(objName + ".AddPlayer(" + p.GetObjName() +")");
-		Writer.Deregister(objName);
-		
+		p.SetField(this);
 		players.add(p);
+		Writer.Deregister(objName);
 	}
 	
 	/**

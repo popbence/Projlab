@@ -85,6 +85,7 @@ public class Main {
 	}
 	
 	private static void Test1() {
+		Writer.wipe();
 		System.out.println("initialization steps:");
 		Eskimo e = new Eskimo();
 		Field f1 = new Field();
@@ -101,16 +102,17 @@ public class Main {
 	}
 	// Fel lett véve egy Controller példány, és hozzáadtam a Controllerhez az Eszkimót
 	private static void Test2() {
+		Writer.wipe();
+		System.out.println("initialization steps:");
 		Controller c = new Controller();
 		c.SetObjName("c");
-		System.out.println("initialization steps:");
 		Eskimo e = new Eskimo();
-		c.AddPlayer(e);
-		Field f1 = new Field();
-		Hole h = new Hole();
 		e.SetObjName("e");
+		Field f1 = new Field();
 		f1.SetObjName("f1");
+		Hole h = new Hole();
 		h.SetObjName("h");
+		c.AddPlayer(e);
 		e.SetField(f1);
 		f1.SetNeighbour(1, h);
 		Writer.wipe();
@@ -119,6 +121,7 @@ public class Main {
 	}
 	
 	private static void Test3() {
+		Writer.wipe();
 		System.out.println("initialization steps:");
 		Eskimo e = new Eskimo();
 		Field f = new Field();
@@ -133,6 +136,7 @@ public class Main {
 	}
 	
 	private static void Test4() {
+		Writer.wipe();
 		System.out.println("initialization steps:");
 		Eskimo e = new Eskimo();
 		Food f = new Food();
@@ -146,6 +150,7 @@ public class Main {
 	}
 	
 	private static void Test5() {
+		Writer.wipe();
 		System.out.println("initialization steps:");
 		Eskimo e = new Eskimo();
 		Suit s = new Suit();
@@ -159,6 +164,7 @@ public class Main {
 	}
 	
 	private static void Test6() {
+		Writer.wipe();
 		System.out.println("initialization steps:");
 		Controller c = new Controller();
 		c.SetObjName("c");
@@ -199,6 +205,7 @@ public class Main {
 	}
 	
 	private static void Test7() {
+		Writer.wipe();
 		System.out.println("initialization steps:");
 		Eskimo e = new Eskimo();
 		Field f1 = new Field();
@@ -217,6 +224,7 @@ public class Main {
 	}
 	
 	private static void Test8() {
+		Writer.wipe();
 		System.out.println("initialization steps:");
 		Controller c = new Controller();
 		Eskimo e = new Eskimo();
@@ -236,6 +244,7 @@ public class Main {
 	}
 	
 	private static void Test9() {
+		Writer.wipe();
 		System.out.println("initialization steps:");
 		Eskimo e = new Eskimo();
 		Field f = new Field();
@@ -254,6 +263,7 @@ public class Main {
 	}
 	
 	private static void Test10() {
+		Writer.wipe();
 		System.out.println("initialization steps:");
 		Eskimo e = new Eskimo();
 		Field f = new Field();
@@ -266,6 +276,7 @@ public class Main {
 	}
 	
 	private static void Test11() {
+		Writer.wipe();
 		System.out.println("initialization steps:");
 		Explorer e = new Explorer();
 		Field f1 = new Field();
@@ -281,6 +292,7 @@ public class Main {
 	}
 	
 	private static void Test12() {
+		Writer.wipe();
 		System.out.println("initialization steps:");
 		Eskimo e = new Eskimo();
 		Unstable uf = new Unstable();
@@ -293,6 +305,7 @@ public class Main {
 	}
 	
 	private static void Test13() {
+		Writer.wipe();
 		System.out.println("initialization steps:");
 		Eskimo e = new Eskimo();
 		Unstable uf = new Unstable();
@@ -306,10 +319,12 @@ public class Main {
 	}
 	
 	private static void Test14() {
+		Writer.wipe();
 		System.out.println("initialization steps:");
 		Eskimo e1 = new Eskimo();
 		Eskimo e2 = new Eskimo();
 		Controller c = new Controller();
+		c.SetActivateNextRound(true);
 		e1.SetObjName("e1");
 		e2.SetObjName("e2");
 		c.SetObjName("c");
@@ -319,6 +334,7 @@ public class Main {
 		Writer.wipe();
 		System.out.println("test 14:");
 		e2.EndRound();
+		c.SetActivateNextRound(false);
 	}
 
 	public static String GetMethodName(){

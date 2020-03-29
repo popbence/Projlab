@@ -51,6 +51,10 @@ public abstract class Player {
 		if(f2 != null) {
 			field.RemovePlayer(this);
 			f2.AddPlayer(this);
+			
+			Writer.Deregister(objName); // Skeleton last minute fixes
+			Writer.DummyGive("d");		//
+			
 			this.AddWork(-1);
 		}
 	}
@@ -63,6 +67,7 @@ public abstract class Player {
 		Writer.Write(objName + ".UseItem(" + item +")");
 		Item i = items.get(item);
 		i.Use();
+		Writer.Deregister(objName);
 		this.AddWork(-1);
 	}
 	
@@ -131,6 +136,10 @@ public abstract class Player {
 	public void Dig() {
 		Writer.Write(objName +".Dig()");
 		field.AddSnow(-1);
+		
+		Writer.Deregister(objName); // Skeleton last minute fixes
+		Writer.DummyGive("d");		//
+		
 		this.AddWork(-1);
 	}
 	

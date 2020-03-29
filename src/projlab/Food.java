@@ -10,9 +10,11 @@ public class Food extends Item{
 	 */
 	public void Use() {
 		Writer.Write(objName + ".Use()");
-		
-		this.GetPlayer().AddTemp(1);
-		this.GetPlayer().DeleteItem(this);
 		Writer.Deregister(objName);
+		Writer.DummyGive("d");
+		Player p = this.GetPlayer();
+		Writer.Deregister("d");
+		p.AddTemp(1);
+		p.DeleteItem(this);
 	}
 }

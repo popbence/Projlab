@@ -12,8 +12,8 @@ public class Hole extends Field{
 	public void AddPlayer(Player p) {
 		Writer.Write(objName + ".AddPlayer(" + p.GetObjName() +")");
 		
-		this.GetPlayers().add(p);
 		Writer.DummyGive(objName);
+		this.GetPlayers().add(p);
 		p.SetField(this);
 		p.SetTempToOne();
 		p.SetDrowning(1);

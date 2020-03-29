@@ -24,6 +24,12 @@ public class Controller {
 	private static String objName;
 	
 	/**
+     * Controls if the NextRound should be called
+     * For skeleton only
+     */
+    private static boolean activateNextRound = false;
+    
+	/**
 	 * It initializes the game
 	 * Not used in the skeleton
 	 */
@@ -34,15 +40,16 @@ public class Controller {
 	 */
 	public static void RoundCheck() {
 		Writer.Write(objName + ".RoundCheck()");
-		
-		boolean allWorkZero = true;
-		for(Player p : players ) {
-			if(p.GetWork() > 0) {
-				allWorkZero = false;
+		if(activateNextRound) {
+			boolean allWorkZero = true;
+			for(Player p : players ) {
+				if(p.GetWork() > 0) {
+					allWorkZero = false;
+				}
 			}
-		}
-		if(allWorkZero) {
-			NextRound();
+			if(allWorkZero) {
+				NextRound();
+			}
 		}
 		Writer.Deregister(objName);
 	}
@@ -74,7 +81,7 @@ public class Controller {
 		 */
 		boolean snowStorm = false;
 		try {
-			System.out.println("Do you want a snowstorm?(Y/N)");
+			System.out.print("Do you want a snowstorm?(Y/N)");
 			Scanner scan = new Scanner(System.in);
 			String s = scan.next();
 			if(s.equalsIgnoreCase("Y") || s.equalsIgnoreCase("yes")) 
@@ -143,4 +150,11 @@ public class Controller {
 		Writer.Deregister(objName);
 		players.add(p);
 	}
+	/**
+	 * Sets the value of activateNextRound
+	 * @param b The wanted value
+	 */
+	public void SetActivateNextRound(boolean b) {
+        activateNextRound = b;
+    }
 }
