@@ -1,12 +1,22 @@
 package projlab;
 
 import java.util.ArrayList;
-
+/**
+ * Represent the items that the players need to collect to win the game
+ * This class extends the Item class
+ */
 public class Part extends Item {
+	
+	/**
+	 * The type of the item
+	 */
 	private int type;
 	
+	/**
+	 * When called the method check the conditions if the players have won
+	 */
 	public void Use() {
-		System.out.println(objName + ".Use()");
+		Writer.Write(objName + ".Use()");
 		Player p = this.GetPlayer();
 		Field f = p.GetField();
 		ArrayList<Player> playersOnField = new ArrayList<Player>();
