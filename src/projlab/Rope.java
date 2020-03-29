@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Rope extends Item{ // TODO: Comments
 	public void Use() {
-		String methodCall = objName + "." + Main.GetMethodName() + "()";
-		System.out.println(methodCall);
+		Writer.Write(objName + ".Use()");
 
 		Field f1 = GetPlayer().GetField();
+		Writer.Deregister("e");
 		int i = 0; boolean has_more_neighbours = true;
 		while (has_more_neighbours) {
 			try {

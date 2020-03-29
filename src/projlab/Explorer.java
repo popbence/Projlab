@@ -17,5 +17,6 @@ public class Explorer extends Player{
 		
 		Field neighbour = this.GetField().GetNeighbour(dir);
 		int nMaxPlayers = neighbour.GetMaxPlayers();
+		this.AddWork(-1);
 	}
 }

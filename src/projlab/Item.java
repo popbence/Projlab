@@ -23,6 +23,7 @@ public abstract class Item {
 	 */
 	public void SetPlayer(Player p) {
 		Writer.Write(objName + ".SetPlayer(" + p.GetObjName()+")");
+		Writer.Deregister(objName);
 		player = p;
 	}
 	

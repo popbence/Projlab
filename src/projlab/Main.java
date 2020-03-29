@@ -114,97 +114,195 @@ public class Main {
 		e.SetField(f1);
 		f1.SetNeighbour(1, h);
 		Writer.wipe();
-		System.out.println("test 1:");
+		System.out.println("test 2:");
 		e.Step(1);
-		
 	}
 	
 	private static void Test3() {
 		System.out.println("initialization steps:");
-		
+		Eskimo e = new Eskimo();
+		Field f = new Field();
+		e.SetObjName("e");
+		f.SetObjName("f");
+		e.SetField(f);
+		f.AddPlayer(e);
 		Writer.wipe();
-		System.out.println("test 1:");
+		System.out.println("test 3:");
+		e.Dig();
 		
 	}
 	
 	private static void Test4() {
 		System.out.println("initialization steps:");
-		
+		Eskimo e = new Eskimo();
+		Food f = new Food();
+		e.SetObjName("e");
+		f.SetObjName("f");
+		e.AddItem(f);
+		f.SetPlayer(e);
 		Writer.wipe();
-		System.out.println("test 1:");
-		
+		System.out.println("test 4:");
+		e.UseItem(0);
 	}
 	
 	private static void Test5() {
 		System.out.println("initialization steps:");
-		
+		Eskimo e = new Eskimo();
+		Suit s = new Suit();
+		e.SetObjName("e");
+		s.SetObjName("s");
+		e.AddItem(s);
+		s.SetPlayer(e);
 		Writer.wipe();
-		System.out.println("test 1:");
-		
+		System.out.println("test 5:");
+		e.UseItem(0);
 	}
 	
 	private static void Test6() {
 		System.out.println("initialization steps:");
-		
+		Controller c = new Controller();
+		c.SetObjName("c");
+		Eskimo e = new Eskimo();
+		Explorer ex1 = new Explorer();
+		Explorer ex2 = new Explorer();
+		e.SetObjName("e");
+		ex1.SetObjName("ex1");
+		ex2.SetObjName("ex2");
+		Hole h1 = new Hole();
+		Hole h2 = new Hole();
+		Field f1 = new Field();
+		Field f2 = new Field();
+		f1.SetObjName("f1");
+		f2.SetObjName("f2");
+		h1.SetObjName("h1");
+		h2.SetObjName("h2");
+		f1.SetNeighbour(1, h1);
+		f1.SetNeighbour(2, f2);
+		f1.SetNeighbour(3, h2);
+		c.AddPlayer(e);
+		c.AddPlayer(ex1);
+		c.AddPlayer(ex2);
+		e.SetField(f1);
+		f1.AddPlayer(e);
+		ex1.SetField(h1);
+		h1.AddPlayer(ex1);
+		ex2.SetField(h2);
+		h2.AddPlayer(ex2);
+
+		Rope r = new Rope();
+		r.SetObjName("r");
+		e.AddItem(r);
+		r.SetPlayer(e);
 		Writer.wipe();
-		System.out.println("test 1:");
-		
+		System.out.println("test 6:");
+		e.UseItem(0);
 	}
 	
 	private static void Test7() {
 		System.out.println("initialization steps:");
-		
+		Eskimo e = new Eskimo();
+		Field f1 = new Field();
+		Shovel s = new Shovel();
+		e.SetObjName("e");
+		f1.SetObjName("f1");
+		s.SetObjName("s");
+		f1.AddSnow(3);
+		f1.AddPlayer(e);
+		e.SetField(f1);
+		e.AddItem(s);
+		s.SetPlayer(e);
 		Writer.wipe();
-		System.out.println("test 1:");
-		
+		System.out.println("test 7:");
+		e.UseItem(0);
 	}
 	
 	private static void Test8() {
 		System.out.println("initialization steps:");
-		
+		Controller c = new Controller();
+		Eskimo e = new Eskimo();
+		Field f1 = new Field();
+		Part p1 = new Part();
+		c.SetObjName("c");
+		e.SetObjName("e");
+		f1.SetObjName("f1");
+		c.AddPlayer(e);
+		p1.SetObjName("p1");
+		p1.SetPlayer(e);
+		e.AddItem(p1);
+		e.SetField(f1);
 		Writer.wipe();
-		System.out.println("test 1:");
-		
+		System.out.println("test 8:");
+		e.UseItem(0);
 	}
 	
 	private static void Test9() {
 		System.out.println("initialization steps:");
-		
+		Eskimo e = new Eskimo();
+		Field f = new Field();
+		Shovel p = new Shovel();
+		e.SetObjName("e");
+		f.SetObjName("f");
+		p.SetObjName("p");
+		f.SetItem(p);
+		p.SetPlayer(e);
+		e.AddItem(p);
+		e.SetField(f);
 		Writer.wipe();
-		System.out.println("test 1:");
+		System.out.println("test 9:");
+		e.Pick();
 		
 	}
 	
 	private static void Test10() {
 		System.out.println("initialization steps:");
-		
+		Eskimo e = new Eskimo();
+		Field f = new Field();
+		e.SetObjName("e");
+		f.SetObjName("f");
+		e.SetField(f);
 		Writer.wipe();
-		System.out.println("test 1:");
-		
+		System.out.println("test 10:");
+		e.UseAbility(1);
 	}
 	
 	private static void Test11() {
 		System.out.println("initialization steps:");
-		
+		Explorer e = new Explorer();
+		Field f1 = new Field();
+		Field f2 = new Field();
+		e.SetObjName("e");
+		f1.SetObjName("f1");
+		f2.SetObjName("f2");
+		e.SetField(f1);
+		f1.SetNeighbour(1, f2);
 		Writer.wipe();
-		System.out.println("test 1:");
-		
+		System.out.println("test 11:");
+		e.UseAbility(1);
 	}
 	
 	private static void Test12() {
 		System.out.println("initialization steps:");
-		
+		Eskimo e = new Eskimo();
+		Unstable uf = new Unstable();
+		e.SetObjName("e");
+		uf.SetObjName("uf");
+		uf.SetMaxPlayer(0);
 		Writer.wipe();
-		System.out.println("test 1:");
-		
+		System.out.println("test 12:");
+		uf.AddPlayer(e);
 	}
 	
 	private static void Test13() {
 		System.out.println("initialization steps:");
-		
+		Eskimo e = new Eskimo();
+		Unstable uf = new Unstable();
+		e.SetObjName("e");
+		uf.SetObjName("uf");
+		uf.SetMaxPlayer(0);
+		uf.AddPlayer(e);
 		Writer.wipe();
-		System.out.println("test 1:");
-		
+		System.out.println("test 13:");
+		uf.RemovePlayer(e);
 	}
 	
 	private static void Test14() {

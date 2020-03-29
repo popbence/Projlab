@@ -42,6 +42,11 @@ class Writer
 		usednames.remove(usednames.lastIndexOf(name));
 	}
 	
+	public static void DummyGive(String name) {
+		String objName = name.split("\\.")[0];
+			usednames.add(objName);
+	}
+	
 	public static void wipe() {
 		indent = 0;
 		usednames.clear();

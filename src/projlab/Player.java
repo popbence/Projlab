@@ -34,7 +34,7 @@ public abstract class Player {
 	/**
 	 * The player's inventory
 	 */
-	private ArrayList<Item> items;
+	private ArrayList<Item> items = new ArrayList<Item>();
 	
 	/**
 	 * It's necessary for the skeleton so the object name can be printed out
@@ -64,7 +64,6 @@ public abstract class Player {
 		Item i = items.get(item);
 		i.Use();
 		this.AddWork(-1);
-		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -133,7 +132,6 @@ public abstract class Player {
 		Writer.Write(objName +".Dig()");
 		field.AddSnow(-1);
 		this.AddWork(-1);
-		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -175,7 +173,6 @@ public abstract class Player {
 	 */
 	public Field GetField() {
 		Writer.Write(objName + ".GetField()");
-		Writer.Deregister(objName);
 		return field;
 	}
 	

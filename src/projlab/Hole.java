@@ -13,6 +13,7 @@ public class Hole extends Field{
 		Writer.Write(objName + ".AddPlayer(" + p.GetObjName() +")");
 		
 		this.GetPlayers().add(p);
+		Writer.DummyGive(objName);
 		p.SetField(this);
 		p.SetTempToOne();
 		p.SetDrowning(1);

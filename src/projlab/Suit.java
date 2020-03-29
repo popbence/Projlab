@@ -2,10 +2,10 @@ package projlab;
 
 public class Suit extends Item{ //TODO: Comments
 	public void Use() {
-
-		String methodCall = objName + "." + Main.GetMethodName() + "()";
-		System.out.println(methodCall);
+		Writer.Write(objName + ".Use()");
 
 		GetPlayer().SetDrowning(-1);
+
+		Writer.Deregister(objName);
 	}
 }

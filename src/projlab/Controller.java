@@ -103,7 +103,6 @@ public class Controller {
 		for(Field f : fields) {
 			f.AddSnow(3);
 		}
-		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -130,7 +129,8 @@ public class Controller {
 	 * Sets the name of the object
 	 * @param Name the name of the object
 	 */
-	public void SetObjName(String name) {
+	public static void SetObjName(String name) {
+		players  = new ArrayList<Player>();
 		objName = name;
 	}
 	

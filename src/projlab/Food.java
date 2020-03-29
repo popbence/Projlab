@@ -13,5 +13,6 @@ public class Food extends Item{
 		
 		this.GetPlayer().AddTemp(1);
 		this.GetPlayer().DeleteItem(this);
+		Writer.Deregister(objName);
 	}
 }
