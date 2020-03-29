@@ -17,6 +17,7 @@ public class Hole extends Field{
 		p.SetTempToOne();
 		p.SetDrowning(1);
 		p.EndRound();
+		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -25,7 +26,7 @@ public class Hole extends Field{
 	 */
 	public void RemovePlayer(Player p) {
 		Writer.Write(objName + ".RemovePlayer(" + p.GetObjName() +")");
-		
+		Writer.Deregister(objName);
 		this.GetPlayers().remove(p);
 	}
 	
@@ -35,7 +36,7 @@ public class Hole extends Field{
 	 */
 	public int GetMaxPlayer() {
 		Writer.Write(objName + ".GetMaxplayer()");
-		
+		Writer.Deregister(objName);
 		return 0;
 	}
 	 /**
@@ -43,5 +44,6 @@ public class Hole extends Field{
 	  */
 	public void BuildIgloo(Igloo i) {
 		Writer.Write(objName + ".BuildIgloo(" + i.GetObjName() +")");
+		Writer.Deregister(objName);
 	}
 }

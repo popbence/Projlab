@@ -44,6 +44,7 @@ public class Controller {
 		if(allWorkZero) {
 			NextRound();
 		}
+		Writer.Deregister(objName);
 	}
 	/**
 	 * Ends the game if a player has died
@@ -51,6 +52,7 @@ public class Controller {
 	 */
 	public static void GameOver() {
 		Writer.Write(objName + ".GameOver()");
+		Writer.Deregister(objName);
 	}
 	/**
 	 * Ends the game if the players won
@@ -58,6 +60,7 @@ public class Controller {
 	 */
 	public static void Win() {
 		Writer.Write(objName + ".Win()");
+		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -100,6 +103,7 @@ public class Controller {
 		for(Field f : fields) {
 			f.AddSnow(3);
 		}
+		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -108,6 +112,7 @@ public class Controller {
 	 */
 	public static ArrayList<Player> GetPlayers(){
 		Writer.Write(objName + ".GetPlayers()");
+		Writer.Deregister(objName);
 		return players;
 	}
 	
@@ -135,6 +140,7 @@ public class Controller {
 	 */
 	public void AddPlayer(Player p) {
 		Writer.Write(objName + ".AddPlayer(" + p.GetObjName() + ")");
+		Writer.Deregister(objName);
 		players.add(p);
 	}
 }

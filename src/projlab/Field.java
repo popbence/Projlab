@@ -49,7 +49,6 @@ public class Field {
 	 */
 	public Field GetNeighbour(int dir) {
 		Writer.Write(objName + ".GetNeighbour(" + dir +")");
-		Writer.Deregister(objName);
 		
 		return neighbours.get(dir);
 	}
@@ -86,6 +85,7 @@ public class Field {
 				p.AddTemp(-1);
 			}
 		}
+		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -95,7 +95,6 @@ public class Field {
 	 */
 	public int GetMaxPlayers() {
 		Writer.Write(objName + ".GetMaxPlayers()");
-		
 		return -1;
 	}
 	
@@ -105,7 +104,7 @@ public class Field {
 	 */
 	public void BuildIgloo(Igloo i) {
 		Writer.Write(objName + ".UseAbility(" + i.GetObjName() +")");
-		
+		Writer.Deregister(objName);
 		this.igloo = i;
 	}
 	
@@ -114,7 +113,7 @@ public class Field {
 	 */
 	public void RemoveIgloo() {
 		Writer.Write(objName + ".RemoveIgloo()");
-		
+		Writer.Deregister(objName);
 		this.igloo = null;
 	}
 	
@@ -138,6 +137,7 @@ public class Field {
 			}
 		}
 		neighbours.set(dir, f);
+		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -145,7 +145,7 @@ public class Field {
 	 */
 	public void RemoveItem() {
 		Writer.Write(objName + ".RemoveItem()");
-		
+		Writer.Deregister(objName);
 		this.item = null;
 	}
 	
@@ -155,7 +155,6 @@ public class Field {
 	 */
 	public Item GetItem() {
 		Writer.Write(objName + ".GetItem()");
-		
 		return item;
 	}
 	
@@ -165,7 +164,6 @@ public class Field {
 	 */
 	public ArrayList<Player> GetPlayers(){
 		Writer.Write(objName + ".GetPlayers()");
-		
 		return players;
 	}
 	

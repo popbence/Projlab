@@ -24,19 +24,22 @@ class Writer
      	return single_instance; 
 	} 
 	
-	public static void Write(String name/*, int same*/) {
+	public static void Write(String name) {
 		String objName = name.split("\\.")[0];
-		if(!usednames.contains(objName)) {
+		if(usednames.isEmpty()) {
 			usednames.add(objName);
 		}
-		for(int i=0;i<usednames.indexOf(objName);i++) {
+		else if(!usednames.get(usednames.size()-1).equalsIgnoreCase(objName)) {
+			usednames.add(objName);
+		}
+		for(int i=0;i<usednames.lastIndexOf(objName);i++) {
 			System.out.print("\t");
 		}
 		System.out.print(name + "\n");
 	}
 	
 	public static void Deregister(String name) {
-		usednames.remove(name);
+		usednames.remove(usednames.lastIndexOf(name));
 	}
 	
 	public static void wipe() {

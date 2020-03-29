@@ -64,6 +64,7 @@ public abstract class Player {
 		Item i = items.get(item);
 		i.Use();
 		this.AddWork(-1);
+		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -78,6 +79,7 @@ public abstract class Player {
 	 */
 	public void AddItem(Item item) {
 		Writer.Write(objName + ".AddItem("+ item.GetObjName() +")");
+		Writer.Deregister(objName);
 		items.add(item);
 	}
 	
@@ -90,6 +92,7 @@ public abstract class Player {
 		temperature += t;
 		if(temperature <= 0)
 			Controller.GameOver();
+		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -101,6 +104,7 @@ public abstract class Player {
 		work += w;
 		if(work < 0)
 			work = 0;
+		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -108,6 +112,7 @@ public abstract class Player {
 	 */
 	public void SetTempToOne() {
 		Writer.Write(objName + ".SetTempToOne()");
+		Writer.Deregister(objName);
 		temperature = 1;
 	}
 	
@@ -117,6 +122,7 @@ public abstract class Player {
 	 */
 	public void SetWork(int w) {
 		Writer.Write(objName + ".SetWork("+w+")");
+		Writer.Deregister(objName);
 		work = w;
 	}
 	
@@ -127,6 +133,7 @@ public abstract class Player {
 		Writer.Write(objName +".Dig()");
 		field.AddSnow(-1);
 		this.AddWork(-1);
+		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -149,6 +156,7 @@ public abstract class Player {
 		Writer.Write(objName + ".EndRound()");
 		work = 0;
 		Controller.RoundCheck();
+		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -157,6 +165,7 @@ public abstract class Player {
 	 */
 	public void SetField(Field f) {
 		Writer.Write(objName + ".SetField(" + f.GetObjName() +")");
+		Writer.Deregister(objName);
 		this.field = f;
 	}
 	
@@ -166,6 +175,7 @@ public abstract class Player {
 	 */
 	public Field GetField() {
 		Writer.Write(objName + ".GetField()");
+		Writer.Deregister(objName);
 		return field;
 	}
 	
@@ -196,6 +206,7 @@ public abstract class Player {
 		break;
 		default: break;
 		}
+		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -204,6 +215,7 @@ public abstract class Player {
 	 */
 	public int GetDrowning(){
 		Writer.Write(objName + ".GetDrowning()");
+		Writer.Deregister(objName);
 		return drowning;
 	}
 	
@@ -213,6 +225,7 @@ public abstract class Player {
 	 */
 	public void DeleteItem(Item item) {
 		Writer.Write(objName + ".DeleteItem(" + item.GetObjName() +")");
+		Writer.Deregister(objName);
 		items.remove(item);
 	}
 	
@@ -240,6 +253,7 @@ public abstract class Player {
 	 */
 	public int GetWork() {
 		Writer.Write(objName + ".GetWork()");
+		Writer.Deregister(objName);
 		return work;
 	}
 	
@@ -249,6 +263,7 @@ public abstract class Player {
 	 */
 	public ArrayList<Item> GetItems(){
 		Writer.Write(objName + ".GetItems()");
+		Writer.Deregister(objName);
 		return items;
 	}
 }
