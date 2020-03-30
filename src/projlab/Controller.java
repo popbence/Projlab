@@ -39,7 +39,7 @@ public class Controller {
 	 * Checks if the round has ended and starts a new round
 	 */
 	public static void RoundCheck() {
-		Writer.Write(objName + ".RoundCheck()");
+		Writer.Write(objName + ".RoundCheck()"); 
 		if(activateNextRound) {
 			boolean allWorkZero = true;
 			for(Player p : players ) {
@@ -48,13 +48,13 @@ public class Controller {
 				}
 			}
 			if(allWorkZero) {
-				Writer.Deregister(objName);
+				Writer.Deregister(objName); 
 				Writer.DummyGive("d");
 				NextRound();
 			}
 		}
 		if(!activateNextRound)
-			Writer.Deregister(objName);
+			Writer.Deregister(objName); 
 	}
 	/**
 	 * Ends the game if a player has died
@@ -99,8 +99,6 @@ public class Controller {
 			SnowStorm();
 			Writer.Deregister("d");
 		}
-		
-		
 		
 		for(Player p : players ) {
 			p.AddWork(4);

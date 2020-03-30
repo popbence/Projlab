@@ -13,7 +13,7 @@ public class Suit extends Item {
 	public void Use() {
 		Writer.Write(objName + ".Use()");
 
-		Writer.Deregister(objName); // Skeleton last minute fixes
+		Writer.Deregister(objName);
 		Writer.DummyGive("d");     
 		
 		Player p = this.GetPlayer();

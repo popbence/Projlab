@@ -29,7 +29,7 @@ public class Rope extends Item {
 		while (has_more_neighbours) {
 			try {
 				Field fi = f1.GetNeighbour(i);
-				// Ide az�rt kellett egy if, mert lehet null az egyik szomsz�d
+				// Neighbours might be nulls
 				if(fi != null){
 					ArrayList<Player> players = fi.GetPlayers();
 					ArrayList<Player> toRemove = new ArrayList<Player>();
@@ -40,7 +40,7 @@ public class Rope extends Item {
 						}
 					}
 					for (Player p : toRemove){
-						fi.RemovePlayer(p); //A kimentett jatekosoknak 0-ra kellene allitani a drowning erteket
+						fi.RemovePlayer(p); 
 						p.SetDrowning(0);
 						f1.AddPlayer(p);
 					}

@@ -1,7 +1,10 @@
 package projlab;
 
 import java.util.ArrayList;
-
+/**
+ * Skeleton only
+ * Helps with the tabulators for printing test cases
+ */
 class Writer 
 { 
 	private static Writer single_instance=null; 
@@ -23,7 +26,7 @@ class Writer
      	} 
      	return single_instance; 
 	} 
-	
+
 	public static void Write(String name) {
 		String objName = name.split("\\.")[0];
 		if(usednames.isEmpty()) {
