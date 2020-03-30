@@ -1,8 +1,16 @@
 package projlab;
 
 import java.util.ArrayList;
-
-public class Rope extends Item{ // TODO: Comments
+/**
+ * Extends the Item class
+ * Implements the Rope item
+ */
+public class Rope extends Item {
+	/**
+	 * Moves every drowning player from neighbouring fields
+	 * to the field of the user, and sets their drowning
+	 * statuses to 0
+	 */
 	public void Use() {
 		Writer.Write(objName + ".Use()");
 		

@@ -9,11 +9,11 @@ public class Field {
 	/**
 	 * The layers of snow on the field
 	 */
-	private int snow = 0;
+	protected int snow = 0;
 	/**
 	 * The igloo thats built on the field
 	 */
-	private Igloo igloo;
+	protected Igloo igloo;
 	/**
 	 * The list of players standing on the field
 	 */

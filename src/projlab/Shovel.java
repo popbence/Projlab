@@ -1,8 +1,17 @@
 package projlab;
 
-public class Shovel extends Item{ // TODO: Comments
+/**
+ * Extends the Item class
+ * Implements the Shovel item
+ */
+public class Shovel extends Item {
+
+	/**
+	 * Removes 2 units of snow
+	 * from the field of the user
+	 */
 	public void Use() {
-		Writer.Write(objName + ".Use()");;
+		Writer.Write(objName + ".Use()");
 
 		Writer.Deregister(objName);
 		Writer.DummyGive("d");
