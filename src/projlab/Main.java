@@ -84,6 +84,9 @@ public class Main {
 		}
 	}
 	
+	/**
+	 * Player steps test case
+	 */
 	private static void Test1() {
 		Writer.wipe();
 		System.out.println("initialization steps:");
@@ -100,7 +103,9 @@ public class Main {
 		System.out.println("test 1:");
 		e.Step(1);
 	}
-	// Fel lett véve egy Controller példány, és hozzáadtam a Controllerhez az Eszkimót
+	/**
+	 * Player steps on hole test case
+	 */
 	private static void Test2() {
 		Writer.wipe();
 		System.out.println("initialization steps:");
@@ -120,6 +125,9 @@ public class Main {
 		e.Step(1);
 	}
 	
+	/**
+	 * Player digs test case
+	 */
 	private static void Test3() {
 		Writer.wipe();
 		System.out.println("initialization steps:");
@@ -135,6 +143,9 @@ public class Main {
 		
 	}
 	
+	/**
+	 * Player uses food test case
+	 */
 	private static void Test4() {
 		Writer.wipe();
 		System.out.println("initialization steps:");
@@ -149,6 +160,9 @@ public class Main {
 		e.UseItem(0);
 	}
 	
+	/**
+	 * Player uses suit test case
+	 */
 	private static void Test5() {
 		Writer.wipe();
 		System.out.println("initialization steps:");
@@ -163,6 +177,9 @@ public class Main {
 		e.UseItem(0);
 	}
 	
+	/**
+	 * Player uses rope test case
+	 */
 	private static void Test6() {
 		Writer.wipe();
 		System.out.println("initialization steps:");
@@ -204,6 +221,9 @@ public class Main {
 		e.UseItem(0);
 	}
 	
+	/**
+	 * Player uses shovel test case
+	 */
 	private static void Test7() {
 		Writer.wipe();
 		System.out.println("initialization steps:");
@@ -223,6 +243,9 @@ public class Main {
 		e.UseItem(0);
 	}
 	
+	/**
+	 * Player uses parts test case
+	 */
 	private static void Test8() {
 		Writer.wipe();
 		System.out.println("initialization steps:");
@@ -243,6 +266,9 @@ public class Main {
 		e.UseItem(0);
 	}
 	
+	/**
+	 * Player picks up item test case
+	 */
 	private static void Test9() {
 		Writer.wipe();
 		System.out.println("initialization steps:");
@@ -262,6 +288,9 @@ public class Main {
 		
 	}
 	
+	/**
+	 * Eskimo uses ability test case
+	 */
 	private static void Test10() {
 		Writer.wipe();
 		System.out.println("initialization steps:");
@@ -275,6 +304,9 @@ public class Main {
 		e.UseAbility(1);
 	}
 	
+	/**
+	 * Explorer uses ability test case
+	 */
 	private static void Test11() {
 		Writer.wipe();
 		System.out.println("initialization steps:");
@@ -291,6 +323,9 @@ public class Main {
 		e.UseAbility(1);
 	}
 	
+	/**
+	 * Unstable field flips test case
+	 */
 	private static void Test12() {
 		Writer.wipe();
 		System.out.println("initialization steps:");
@@ -304,6 +339,9 @@ public class Main {
 		uf.AddPlayer(e);
 	}
 	
+	/**
+	 * Unstable field flips back test case
+	 */
 	private static void Test13() {
 		Writer.wipe();
 		System.out.println("initialization steps:");
@@ -318,6 +356,9 @@ public class Main {
 		uf.RemovePlayer(e);
 	}
 	
+	/**
+	 * Player ends turn test case
+	 */
 	private static void Test14() {
 		Writer.wipe();
 		System.out.println("initialization steps:");
