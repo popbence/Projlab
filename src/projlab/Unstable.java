@@ -7,12 +7,12 @@ import java.util.ArrayList;
  * Implements Unstable fields
  */
 public class Unstable extends Field { // TODO: Comments
-	private int maxPlayer;
+	private int maxCharacter;
 	private boolean flipped;
 
 	/**
 	 * Flips the unstable field:
-	 * Sets the temperature of the players on this field to 0, if not stabilized
+	 * Sets the temperature of the characters on this field to 0, if not stabilized
 	 * Removes the snow and igloo on this field, if not stabilized
 	 */
 	public void Flip() {
@@ -20,10 +20,8 @@ public class Unstable extends Field { // TODO: Comments
 		flipped = !flipped;
 
 		if (flipped) {
-			for (Player p : GetPlayers()) {
-				p.SetTempToOne();
-				p.SetDrowning(1);
-				//p.EndRound(); a teszt 12 eset�ben ez nem fontos itt.
+			for (Character c : GetCharacters()) {
+				c.FellInWater();
 			}
 			igloo = null;
 			snow = 0;
@@ -31,49 +29,47 @@ public class Unstable extends Field { // TODO: Comments
 	}
 
 	/**
-	 * Adds p player to the list of players
-	 * Checks the number of players on the field after addition
-	 * and flips, if applicable (more players on the field than maxPlayers)
-	 * @param p The player to be added
+	 * Adds c character to the list of characters
+	 * Checks the number of characters on the field after addition
+	 * and flips, if applicable (more characters on the field than maxCharacters)
+	 * @param c The character to be added
 	 */
-	public void AddPlayer(Player p) {
-		super.AddPlayer(p); // should include the method call print
+	public void AddCharacter(Character c) {
+		super.AddCharacter(c); // should include the method call print
 		
 		if (flipped){
-			/*p.SetTempToOne();
-			p.SetDrowning(1);
-			p.EndRound();*/// a teszt 13 eset�ben nem fontos itt.
-		} else if (GetPlayers().size() > maxPlayer)
+			c.FellInWater();
+		} else if (GetCharacters().size() > maxCharacter)
 			Flip();
 	}
 
 	/**
-	 * Removes the given player from the list of players
-	 * Checks the number of players on the field after removal
-	 * and flips back, if applicable (no players on the field)
-	 * @param p The player to be removed
+	 * Removes the given character from the list of characters
+	 * Checks the number of characters on the field after removal
+	 * and flips back, if applicable (no characters on the field)
+	 * @param c The character to be removed
 	 */
-	public void RemovePlayer(Player p) {
-		super.RemovePlayer(p); // should include the method call print
+	public void RemoveCharacter(Character c) {
+		super.RemoveCharacter(c); // should include the method call print
 		
-		if (GetPlayers().size() == 0)
+		if (GetCharacters().size() == 0 && flipped)
 			Flip();
 	}
 
 	/**
-	 * Returns the max amount of players the field can safely carry
-	 * @return The max number of players the field can carry
+	 * Returns the max amount of characters the field can safely carry
+	 * @return The max number of characters the field can carry
 	 */
-	public int GetMaxPlayer() {
-		return maxPlayer;
+	public int GetMaxCharacter() {
+		return maxCharacter;
 	}
 
 	/**
-	 * Sets the max amount of players the field can safely carry
-	 * @param players the new max number of players the field can carry
+	 * Sets the max amount of characters the field can safely carry
+	 * @param characters the new max number of characters the field can carry
 	 */
-	public void SetMaxPlayer(int players) {
-		maxPlayer = players;
+	public void SetMaxCharacter(int characters) {
+		maxCharacter = characters;
 	}
 	
 }

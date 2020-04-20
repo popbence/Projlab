@@ -17,29 +17,23 @@ public class Rope extends Item {
 		
 		Field f1 = player.GetField();
 		
-		
 		int i = 0; boolean has_more_neighbours = true;
-		while (has_more_neighbours) {
+		while(has_more_neighbours) {
 			try {
 				Field fi = f1.GetNeighbour(i);
-				// Neighbours might be nulls
-				if(fi != null){
-					ArrayList<Player> players = fi.GetPlayers();
-					ArrayList<Player> toRemove = new ArrayList<Player>();
-	
-					for (Player p : players) {
-						if (p.GetDrowning() == 1) {
-							toRemove.add(p);
+				if(fi != null) {
+					ArrayList<Character> characters = fi.GetCharacters();
+					for(Character c : characters) {
+						if(c.Rescueable) {
+							fi.RemoveCharacter(c);
+							c.SetDrowning(0);
+							f1.AddCharacter(c);
 						}
 					}
-					for (Player p : toRemove){
-						fi.RemovePlayer(p); 
-						p.SetDrowning(0);
-						f1.AddPlayer(p);
-					}
 				}
-				i++;
-			} catch (IndexOutOfBoundsException e){
+				++i;
+			}
+			catch(IndexOutOfBoundsException e) {
 				has_more_neighbours = false;
 			}
 		}
