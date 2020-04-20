@@ -1,5 +1,7 @@
 package projlab;
 
-public class TentBuilder {
-
+public class TentBuilder extends Item{
+	public void Use() {
+		
+	}
 }

@@ -1,5 +1,7 @@
 package projlab;
 
-public class Tent {
-
+public class Tent extends Igloo{
+	public boolean Invadable() {
+		return true;
+	}
 }
