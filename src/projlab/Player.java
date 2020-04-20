@@ -193,4 +193,8 @@ public abstract class Player extends Character{
 	 public boolean Rescuable() {
 		 return (drowning == 1 || drowning == 2);
 	 }
+	 public void SnowFall() {
+		 AddTemp(-1);
+	 }
+	 
 }

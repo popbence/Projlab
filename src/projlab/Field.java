@@ -27,6 +27,8 @@ public class Field {
 	 */
 	private ArrayList<Field> neighbours = new ArrayList<Field>();
 	
+	private boolean deadly = false;
+	
 	/**
 	 * Adds p player to the list of players
 	 * @param p The player to be added
@@ -34,6 +36,9 @@ public class Field {
 	public void AddCharacter(Character c) {
 		c.SetField(this);
 		characters.add(c);
+		if(deadly) {
+			Controller.GameOver();
+		}
 	}
 	
 	/**
@@ -141,5 +146,13 @@ public class Field {
 	 */
 	public ArrayList<Character> GetCharacters(){
 		return characters;
+	}
+	
+	public void SetDeadly() {
+		deadly = !deadly;
+	}
+	
+	public Igloo GetIgloo() {
+		return igloo;
 	}
 }

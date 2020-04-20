@@ -2,7 +2,7 @@ package projlab;
 
 import java.util.ArrayList;
 
-public class PolarBear extends Characters{
+public class PolarBear extends Character {
 	public void Step(int dir) {
 		Field f1 = this.GetField();
 		Field f2 = f1.GetNeighbour(dir);
@@ -32,5 +32,8 @@ public class PolarBear extends Characters{
 	}
 	public boolean Rescuable() {
 		return false;
+	}
+	public void SnowFall() {
+		
 	}
 }
