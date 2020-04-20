@@ -26,20 +26,14 @@ public class Field {
 	 * List of the neighbourning fields
 	 */
 	private ArrayList<Field> neighbours = new ArrayList<Field>(); //kelett, hogy a tesztben fusson a .size() miatt
-	/**
-	 * It's necessary for the skeleton so the object name can be printed out
-	 */
-	protected String objName;
 	
 	/**
 	 * Adds p player to the list of players
 	 * @param p The player to be added
 	 */
 	public void AddPlayer(Player p) {
-		Writer.Write(objName + ".AddPlayer(" + p.GetObjName() +")");
 		p.SetField(this);
 		players.add(p);
-		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -48,8 +42,6 @@ public class Field {
 	 * @return The neighbour field in dir direction
 	 */
 	public Field GetNeighbour(int dir) {
-		Writer.Write(objName + ".GetNeighbour(" + dir +")");
-		Writer.Deregister(objName);
 		return neighbours.get(dir);
 	}
 	
@@ -58,9 +50,6 @@ public class Field {
 	 * @param p The player to be removed
 	 */
 	public void RemovePlayer(Player p) {
-		Writer.Write(objName + ".RemovePlayer(" + p.GetObjName() +")");
-		Writer.Deregister(objName);
-		
 		players.remove(p);
 	}
 	
@@ -69,7 +58,6 @@ public class Field {
 	 * @param s The amount of snow
 	 */
 	public void AddSnow(int s) {
-		Writer.Write(objName + ".AddSnow(" + s +")");
 		
 		if(igloo != null) {
 			boolean destroy  = igloo.Destroy(s);
@@ -85,7 +73,6 @@ public class Field {
 				p.AddTemp(-1);
 			}
 		}
-		Writer.Deregister(objName);
 	}
 	
 	/**
@@ -94,8 +81,6 @@ public class Field {
 	 * @return The max number of players the field can carry
 	 */
 	public int GetMaxPlayers() {
-		Writer.Write(objName + ".GetMaxPlayers()");
-		Writer.Deregister(objName);
 		return -1;
 	}
 	
@@ -104,8 +89,6 @@ public class Field {
 	 * @param i The igloo
 	 */
 	public void BuildIgloo(Igloo i) {
-		Writer.Write(objName + ".BuildIgloo(" + i.GetObjName() +")");
-		Writer.Deregister(objName);
 		this.igloo = i;
 	}
 	
@@ -113,8 +96,6 @@ public class Field {
 	 * Destroys the igloo that is on the field
 	 */
 	public void RemoveIgloo() {
-		Writer.Write(objName + ".RemoveIgloo()");
-		Writer.Deregister(objName);
 		this.igloo = null;
 	}
 	
@@ -126,7 +107,6 @@ public class Field {
 	 * @param f The neighbouring field
 	 */
 	public void SetNeighbour(int dir, Field f) {
-		Writer.Write(objName + ".SetNeighbour(" + dir + "," + f.GetObjName() + ")");
 		
 		int n = neighbours.size();
 		for(int i = 0; i < (dir + 1 - n); i++) {
@@ -138,15 +118,12 @@ public class Field {
 			}
 		}
 		neighbours.set(dir, f);
-		Writer.Deregister(objName);
 	}
 	
 	/**
 	 * Removes the item that is burried in the field
 	 */
 	public void RemoveItem() {
-		Writer.Write(objName + ".RemoveItem()");
-		Writer.Deregister(objName);
 		this.item = null;
 	}
 	
@@ -155,14 +132,10 @@ public class Field {
 	 * @return The burried item
 	 */
 	public Item GetItem() {
-		Writer.Write(objName + ".GetItem()");
-		Writer.Deregister(objName);
 		return item;
 	}
 	
 	public void SetItem(Item i) {
-		Writer.Write(objName + ".GetItem()");
-		Writer.Deregister(objName);
 		item = i;
 	}
 	
@@ -171,26 +144,6 @@ public class Field {
 	 * @return The list of players
 	 */
 	public ArrayList<Player> GetPlayers(){
-		Writer.Write(objName + ".GetPlayers()");
-		Writer.Deregister(objName);
 		return players;
-	}
-	
-	/**
-     * Skeleton only
-     * Returns the name of the object
-     * @return the name of the object
-     */
-	public String GetObjName() {
-		return objName;
-	}
-	
-	/**
-     * Skeleton only
-     * Sets the name of the object
-     * @param name the name of the object
-     */
-	public void SetObjName(String name) {
-		objName = name;
 	}
 }
