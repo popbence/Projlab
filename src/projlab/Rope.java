@@ -24,9 +24,10 @@ public class Rope extends Item {
 				if(fi != null) {
 					ArrayList<Character> characters = fi.GetCharacters();
 					for(Character c : characters) {
-						if(c.Rescueable) {
+						if(c.Rescuable()) {
 							fi.RemoveCharacter(c);
-							c.SetDrowning(0);
+							Player p = (Player)c;
+							p.SetDrowning(0);
 							f1.AddCharacter(c);
 						}
 					}
