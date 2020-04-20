@@ -21,19 +21,29 @@ public class Part extends Item {
 		
 		Field f = p.GetField();
 		ArrayList<Player> playersOnField = new ArrayList<Player>();
-		playersOnField = f.GetPlayers();
-		ArrayList<Player> allPlayers = new ArrayList<Player>();
-		allPlayers = Controller.GetPlayers();
-		playersOnField.equals(allPlayers);
-		ArrayList<Item> items = p.GetItems();
-		int j = 0;
-		for (Item i : items) {
-			if(i instanceof Part) {
-				j++;
+		ArrayList<Character> charactersOnField = f.GetCharacters();
+		
+		for(int i = 0; i < charactersOnField.size(); i++) {
+			if(charactersOnField.get(i) instanceof Player)
+				playersOnField.add((Player)charactersOnField.get(i));
+		}
+		
+		ArrayList<Player> allPlayers = Controller.GetPlayers();
+			
+		if(playersOnField.equals(allPlayers)) {
+			ArrayList<Item> allItems = new ArrayList<Item>();
+			for(Player pi : allPlayers) {
+				allItems.addAll(pi.GetItems());
+			}
+			int j = 0;
+			for (Item i : allItems) {
+				if(i instanceof Part) {
+					j++;
+				}
+			}
+			if(j == 3) {
+				Controller.Win();
 			}
 		}
-		if(j == 3)
-			Controller.Win();
-		
 	}
 }

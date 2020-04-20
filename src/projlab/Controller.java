@@ -2,6 +2,7 @@ package projlab;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -18,6 +19,10 @@ public class Controller {
 	 * All of the players
 	 */
 	private static ArrayList<Player> players = new ArrayList<Player>();
+	
+	private static ArrayList<Tent> tents = new ArrayList<Tent>();
+	
+	private static PolarBear polarbear = new PolarBear(); 
 	/**
 	 * It initializes the game
 	 * Not used in the skeleton
@@ -28,17 +33,15 @@ public class Controller {
 	 * Checks if the round has ended and starts a new round
 	 */
 	public static void RoundCheck() {
-		
-			boolean allWorkZero = true;
-			for(Player p : players ) {
-				if(p.GetWork() > 0) {
-					allWorkZero = false;
-				}
+		boolean allWorkZero = true;
+		for(Player p : players ) {
+			if(p.GetWork() > 0) {
+				allWorkZero = false;
 			}
-			if(allWorkZero) {
-				NextRound();
-			}
-		
+		}
+		if(allWorkZero) {
+			NextRound();
+		}
 	}
 	/**
 	 * Ends the game if a player has died
@@ -57,27 +60,13 @@ public class Controller {
 	
 	/**
 	 * Starts the next round.
-	 * In skeleton it asks the user if there should be a snowstorm
 	 */
 	public static void NextRound() {
-
-		//Asks the user if there should be a snowstorm in the beginning of the next turn
-		 
-		boolean snowStorm = false;
-		try {
-			System.out.print("Do you want a snowstorm?(Y/N)");
-			Scanner scan = new Scanner(System.in);
-			String s = scan.next();
-			if(s.equalsIgnoreCase("Y") || s.equalsIgnoreCase("yes")) 
-				snowStorm = true;
-		}
-		catch(InputMismatchException e) {
-			
-		}
-		if(snowStorm) {
+		Random rng = new Random();
+		int random = rng.nextInt(99);
+		if(random < 25) {
 			SnowStorm();
 		}
-		
 		for(Player p : players ) {
 			p.AddWork(4);
 			p.SetDrowning(2);
@@ -86,12 +75,19 @@ public class Controller {
 	
 	/**
 	 * Adds snow to random fields
-	 * In skeleton for easy testing it adds 3 layers of snow to all fields
 	 */
 	public static void SnowStorm() {
-		
-		for(Field f : fields) {
-			f.AddSnow(3);
+		Random rng = new Random();
+		int numberOfSelectedFields = 0;
+		numberOfSelectedFields = rng.nextInt(fields.size());
+		ArrayList<Field> selectedFields = new ArrayList<Field>();
+		for(int i = 0; i < numberOfSelectedFields; i++) {
+			int selectedField = rng.nextInt(fields.size());
+			selectedFields.add(fields.get(selectedField));
+		}
+		for(Field f : selectedFields) {
+			int snow = rng.nextInt(4);
+			f.AddSnow(snow);
 		}
 	}
 	

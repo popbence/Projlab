@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Abstract class, defines the common behavior for a Playable character
  */
-public abstract class Player {
+public abstract class Player extends Character{
 	
 	/**
 	 * Work points
@@ -27,11 +27,6 @@ public abstract class Player {
 	private int drowning;
 	
 	/**
-	 * The field where the player is at right now
-	 */
-	private Field field;
-	
-	/**
 	 * The player's inventory
 	 */
 	private ArrayList<Item> items = new ArrayList<Item>();
@@ -43,11 +38,10 @@ public abstract class Player {
 	 * @param dir The direction where the player wants to move
 	 */
 	public void Step(int dir) {
-		Field f2 = field.GetNeighbour(dir);
+		Field f2 = GetField().GetNeighbour(dir);
 		if(f2 != null) {
-			field.RemovePlayer(this);
-			f2.AddPlayer(this);
-			
+			GetField().RemoveCharacter(this);
+			f2.AddCharacter(this);
 			this.AddWork(-1);
 		}
 	}
@@ -97,13 +91,6 @@ public abstract class Player {
 	}
 	
 	/**
-	 * Set the temperature to 1
-	 */
-	public void SetTempToOne() {
-		temperature = 1;
-	}
-	
-	/**
 	 * Set the work points to the given amount
 	 * @param w The set amount
 	 */
@@ -115,8 +102,7 @@ public abstract class Player {
 	 * Removes 1 snow pile from the field where the player at
 	 */
 	public void Dig() {
-		field.AddSnow(-1);
-		
+		this.GetField().AddSnow(-1);
 		this.AddWork(-1);
 	}
 	
@@ -124,14 +110,12 @@ public abstract class Player {
 	 * The player picks up the item
 	 */
 	public void Pick() {
-		Item i = field.GetItem();
+		Item i = GetField().GetItem();
 		if (i != null) {
-			field.RemoveItem();
+			GetField().RemoveItem();
 			i.SetPlayer(this);
-			
 			this.AddWork(-1);
 		}
-		
 	}
 	
 	/**
@@ -141,23 +125,7 @@ public abstract class Player {
 		work = 0;
 		Controller.RoundCheck();
 	}
-	
-	/**
-	 * Sets the player's position
-	 * @param f The position
-	 */
-	public void SetField(Field f) {
-		this.field = f;
-	}
-	
-	/**
-	 * Gets the field where the player currently is at
-	 * @return field
-	 */
-	public Field GetField() {
-		return field;
-	}
-	
+
 	/**
 	 * Set the drowning value to the given value
 	 * @param number The value
@@ -202,8 +170,6 @@ public abstract class Player {
 		items.remove(item);
 	}
 	
-	
-	
 	/**
 	 * Returns the work points
 	 * @return work
@@ -219,4 +185,12 @@ public abstract class Player {
 	public ArrayList<Item> GetItems(){
 		return items;
 	}
+	 public void FellInWater() {
+		 SetWork(0);
+		 temperature = 1;
+		 SetDrowning(1);
+	 }
+	 public boolean Rescuable() {
+		 return (drowning == 1 || drowning == 2);
+	 }
 }

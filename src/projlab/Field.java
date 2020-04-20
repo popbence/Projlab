@@ -17,7 +17,7 @@ public class Field {
 	/**
 	 * The list of players standing on the field
 	 */
-	private ArrayList<Player> players = new ArrayList<Player>();
+	private ArrayList<Character> characters = new ArrayList<Character>();
 	/**
 	 * The item, that buried in the field
 	 */
@@ -25,15 +25,15 @@ public class Field {
 	/**
 	 * List of the neighbourning fields
 	 */
-	private ArrayList<Field> neighbours = new ArrayList<Field>(); //kelett, hogy a tesztben fusson a .size() miatt
+	private ArrayList<Field> neighbours = new ArrayList<Field>();
 	
 	/**
 	 * Adds p player to the list of players
 	 * @param p The player to be added
 	 */
-	public void AddPlayer(Player p) {
-		p.SetField(this);
-		players.add(p);
+	public void AddCharacter(Character c) {
+		c.SetField(this);
+		characters.add(c);
 	}
 	
 	/**
@@ -49,8 +49,8 @@ public class Field {
 	 * Removes the given player from the list of players
 	 * @param p The player to be removed
 	 */
-	public void RemovePlayer(Player p) {
-		players.remove(p);
+	public void RemoveCharacter(Character c) {
+		characters.remove(c);
 	}
 	
 	/**
@@ -58,19 +58,16 @@ public class Field {
 	 * @param s The amount of snow
 	 */
 	public void AddSnow(int s) {
-		
+		snow += s;
 		if(igloo != null) {
 			boolean destroy  = igloo.Destroy(s);
 			if(destroy) {
 				this.RemoveIgloo();
 			}
 		}
-		
-		snow += s;
-		
-		if(igloo == null && s>0) {
-			for(Player p : players) {
-				p.AddTemp(-1);
+		if(igloo == null && s > 0){
+			for(Character c : characters) {
+				c.SnowFall();
 			}
 		}
 	}
@@ -80,7 +77,7 @@ public class Field {
 	 * Because this is a stable field this will return -1
 	 * @return The max number of players the field can carry
 	 */
-	public int GetMaxPlayers() {
+	public int GetMaxCharacters() {
 		return -1;
 	}
 	
@@ -107,7 +104,6 @@ public class Field {
 	 * @param f The neighbouring field
 	 */
 	public void SetNeighbour(int dir, Field f) {
-		
 		int n = neighbours.size();
 		for(int i = 0; i < (dir + 1 - n); i++) {
 			if(n == 0) {
@@ -121,15 +117,15 @@ public class Field {
 	}
 	
 	/**
-	 * Removes the item that is burried in the field
+	 * Removes the item that is buried in the field
 	 */
 	public void RemoveItem() {
 		this.item = null;
 	}
 	
 	/**
-	 * Returns the item that is burried in the field
-	 * @return The burried item
+	 * Returns the item that is buried in the field
+	 * @return The buried item
 	 */
 	public Item GetItem() {
 		return item;
@@ -143,7 +139,7 @@ public class Field {
 	 * Returns the list of players standing on the field
 	 * @return The list of players
 	 */
-	public ArrayList<Player> GetPlayers(){
-		return players;
+	public ArrayList<Character> GetCharacters(){
+		return characters;
 	}
 }

@@ -9,27 +9,24 @@ public class Hole extends Field{
 	 * Adds p Player to the list of players that arte in the hole 
 	 * @param p The player to be added to the hole
 	 */
-	public void AddPlayer(Player p) {
-		this.GetPlayers().add(p);
-		p.SetField(this);
-		p.SetTempToOne();
-		p.SetDrowning(1);
-		p.EndRound();
+	public void AddCharacter(Character c) {
+		super.AddCharacter(c);
+		c.FellInWater();
 	}
 	
 	/**
 	 * Removes the player from the hole
 	 * @param p The player to be removed from the hole
 	 */
-	public void RemovePlayer(Player p) {
-		this.GetPlayers().remove(p);
+	public void RemoveCharacter(Character c) {
+		this.GetCharacters().remove(c);
 	}
 	
 	/**
 	 * Returns the max amount of players the field can safely carry
 	 * @return The max number of players the field can carry
 	 */
-	public int GetMaxPlayer() {
+	public int GetMaxCharacter() {
 		return 0;
 	}
 	 /**
