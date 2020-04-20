@@ -11,14 +11,8 @@ public class Suit extends Item {
 	 * From that point on, that value cannot be changed
 	 */
 	public void Use() {
-		Writer.Write(objName + ".Use()");
-
-		Writer.Deregister(objName);
-		Writer.DummyGive("d");     
 		
 		Player p = this.GetPlayer();
-		
-		Writer.Deregister("d");
 		
 		p.SetDrowning(-1);
 	

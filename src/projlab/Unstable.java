@@ -16,10 +16,6 @@ public class Unstable extends Field { // TODO: Comments
 	 * Removes the snow and igloo on this field, if not stabilized
 	 */
 	public void Flip() {
-		Writer.Write(objName + "." + Main.GetMethodName() + "()");
-		
-		Writer.Deregister(objName);
-		Writer.DummyGive("dd");
 
 		flipped = !flipped;
 
@@ -43,8 +39,6 @@ public class Unstable extends Field { // TODO: Comments
 	public void AddPlayer(Player p) {
 		super.AddPlayer(p); // should include the method call print
 		
-		Writer.DummyGive("d");
-		
 		if (flipped){
 			/*p.SetTempToOne();
 			p.SetDrowning(1);
@@ -62,8 +56,6 @@ public class Unstable extends Field { // TODO: Comments
 	public void RemovePlayer(Player p) {
 		super.RemovePlayer(p); // should include the method call print
 		
-		Writer.DummyGive("d");
-		
 		if (GetPlayers().size() == 0)
 			Flip();
 	}
@@ -73,7 +65,6 @@ public class Unstable extends Field { // TODO: Comments
 	 * @return The max number of players the field can carry
 	 */
 	public int GetMaxPlayer() {
-		Writer.Write(objName + "." + Main.GetMethodName() + "()");
 		return maxPlayer;
 	}
 

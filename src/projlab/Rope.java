@@ -12,19 +12,12 @@ public class Rope extends Item {
 	 * statuses to 0
 	 */
 	public void Use() {
-		Writer.Write(objName + ".Use()");
-		
-		Writer.Deregister(objName);
-		Writer.DummyGive("d");
 		
 		Player player = this.GetPlayer();
-		
-		Writer.Deregister("d");
 		
 		Field f1 = player.GetField();
 		
 		
-		Writer.Deregister("e");
 		int i = 0; boolean has_more_neighbours = true;
 		while (has_more_neighbours) {
 			try {

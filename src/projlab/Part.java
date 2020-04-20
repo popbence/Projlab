@@ -16,17 +16,10 @@ public class Part extends Item {
 	 * When called the method check the conditions if the players have won
 	 */
 	public void Use() {
-		Writer.Write(objName + ".Use()");
-		
-		Writer.Deregister(objName);
-		Writer.DummyGive("d");
 		
 		Player p = this.GetPlayer();
 		
-		Writer.Deregister("d");
-		
 		Field f = p.GetField();
-		Writer.Deregister("e");
 		ArrayList<Player> playersOnField = new ArrayList<Player>();
 		playersOnField = f.GetPlayers();
 		ArrayList<Player> allPlayers = new ArrayList<Player>();
