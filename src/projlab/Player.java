@@ -27,11 +27,6 @@ public abstract class Player {
 	private int drowning;
 	
 	/**
-	 * The field where the player is at right now
-	 */
-	private Field field;
-	
-	/**
 	 * The player's inventory
 	 */
 	private ArrayList<Item> items = new ArrayList<Item>();
