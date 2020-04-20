@@ -6,6 +6,10 @@ package projlab;
  */
 public class Explorer extends Player{
 	
+	public Explorer() {
+		SetTemp(4);
+		SetWork(4);
+	}
 	/**
 	 * Defines the Player class' abstract UseAbility() method
 	 * Displays the number of players that can stand on the neighbouring field in 
@@ -13,9 +17,11 @@ public class Explorer extends Player{
 	 * @param The direction of the neighbour field
 	 */
 	public void UseAbility(int dir) {
-		Field f = this.GetField();
-		Field neighbour = f.GetNeighbour(dir);
-		int nMaxCharacters = neighbour.GetMaxCharacters();
-		this.AddWork(-1);
+		if(GetWork() > 0) {
+			Field f = this.GetField();
+			Field neighbour = f.GetNeighbour(dir);
+			int nMaxCharacters = neighbour.GetMaxCharacter(); //Ezzel kéne csinálni valamit
+			this.AddWork(-1);
+		}
 	}
 }

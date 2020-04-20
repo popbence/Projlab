@@ -63,8 +63,8 @@ public class Controller {
 	 */
 	public static void NextRound() {
 		Random rng = new Random();
-		int random = rng.nextInt(99);
-		if(random < 25) {
+		int random = rng.nextInt(100);
+		if(random < 24) {
 			SnowStorm();
 		}
 		for(Player p : players ) {

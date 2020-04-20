@@ -1,14 +1,12 @@
 package projlab;
 
-import java.util.ArrayList;
-
 /**
  * Extends the Field class
  * Implements Unstable fields
  */
-public class Unstable extends Field { // TODO: Comments
+public class Unstable extends Field {
 	private int maxCharacter;
-	private boolean flipped;
+	private boolean flipped = false;
 
 	/**
 	 * Flips the unstable field:
@@ -39,8 +37,10 @@ public class Unstable extends Field { // TODO: Comments
 		
 		if (flipped){
 			c.FellInWater();
-		} else if (GetCharacters().size() > maxCharacter)
+		} 
+		else if (GetCharacters().size() > maxCharacter) {
 			Flip();
+		}
 	}
 
 	/**
@@ -50,10 +50,11 @@ public class Unstable extends Field { // TODO: Comments
 	 * @param c The character to be removed
 	 */
 	public void RemoveCharacter(Character c) {
-		super.RemoveCharacter(c); // should include the method call print
+		super.RemoveCharacter(c); 
 		
-		if (GetCharacters().size() == 0 && flipped)
+		if (GetCharacters().size() == 0 && flipped) {
 			Flip();
+		}
 	}
 
 	/**

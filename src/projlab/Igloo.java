@@ -8,7 +8,7 @@ public class Igloo {
 	/**
 	 * the igloo's current health
 	 */
-	private int health;
+	private int health = 5;
 	
 	
 	/**
@@ -18,10 +18,7 @@ public class Igloo {
 	 */
 	public boolean Destroy(int s) {
 		health -= s;
-		if(health <= 0) {
-			return true;
-		}
-		return false;
+		return (health <= 0);
 	}
 	
 	public boolean Invadable() {

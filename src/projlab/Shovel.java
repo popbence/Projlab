@@ -11,11 +11,8 @@ public class Shovel extends Item {
 	 * from the field of the user
 	 */
 	public void Use() {
-		
 		Player p = this.GetPlayer();
-		
 		Field f = p.GetField();
-		
 		f.AddSnow(-2);
 	}
 }

@@ -47,6 +47,9 @@ public class Field {
 	 * @return The neighbour field in dir direction
 	 */
 	public Field GetNeighbour(int dir) {
+		if(dir > neighbours.size() - 1) {
+			return null;
+		}
 		return neighbours.get(dir);
 	}
 	
@@ -82,7 +85,7 @@ public class Field {
 	 * Because this is a stable field this will return -1
 	 * @return The max number of players the field can carry
 	 */
-	public int GetMaxCharacters() {
+	public int GetMaxCharacter() {
 		return -1;
 	}
 	
@@ -154,5 +157,8 @@ public class Field {
 	
 	public Igloo GetIgloo() {
 		return igloo;
+	}
+	public int GetNeighboursSize() {
+		return neighbours.size();
 	}
 }

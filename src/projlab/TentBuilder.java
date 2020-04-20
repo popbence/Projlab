@@ -1,6 +1,7 @@
 package projlab;
 
 public class TentBuilder extends Item{
+	
 	public void Use() {
 		Player p = this.GetPlayer();
 		Field f = p.GetField();
