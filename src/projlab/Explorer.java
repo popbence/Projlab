@@ -6,6 +6,8 @@ package projlab;
  */
 public class Explorer extends Player{
 	
+	int lastExploredFieldCapacity = 0;
+	
 	public Explorer() {
 		SetTemp(4);
 		SetWork(4);
@@ -20,8 +22,12 @@ public class Explorer extends Player{
 		if(GetWork() > 0) {
 			Field f = this.GetField();
 			Field neighbour = f.GetNeighbour(dir);
-			int nMaxCharacters = neighbour.GetMaxCharacter(); //Ezzel kéne csinálni valamit
+			lastExploredFieldCapacity = neighbour.GetMaxCharacter(); //Ezzel kéne csinálni valamit
 			this.AddWork(-1);
 		}
+	}
+	
+	public int GetLastExploredFieldCapacity() {
+		return lastExploredFieldCapacity;
 	}
 }
