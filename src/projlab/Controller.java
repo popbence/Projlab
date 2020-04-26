@@ -27,7 +27,10 @@ public class Controller {
 	 * It initializes the game
 	 * Not used in the skeleton
 	 */
-	public void Init(){}
+	public static void Init(){
+		fields = new ArrayList<Field>();
+		players = new ArrayList<Player>();
+	}
 	
 	/**
 	 * Checks if the round has ended and starts a new round
@@ -105,5 +108,9 @@ public class Controller {
 	 */
 	public void AddPlayer(Player p) {
 		players.add(p);
+	}
+	
+	public void AddField(Field f) {
+		fields.add(f);
 	}
 }

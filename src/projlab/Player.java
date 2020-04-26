@@ -124,6 +124,7 @@ public abstract class Player extends Character{
 			Item i = GetField().GetItem();
 			if (i != null) {
 				GetField().RemoveItem();
+				AddItem(i);
 				i.SetPlayer(this);
 				this.AddWork(-1);
 			}
@@ -187,6 +188,10 @@ public abstract class Player extends Character{
 	 */
 	public int GetWork() {
 		return work;
+	}
+	
+	public int GetTemp() {
+		return temperature;
 	}
 	
 	/**
