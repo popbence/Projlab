@@ -1,0 +1,10 @@
+createmap 2
+setfield f_2 hole
+f_2has been renamed:h_2
+setneig f_1 h_2 1 1
+character E1 e f_1
+character E2 e f_1
+data E1
+
+step E1 1
+data E1
