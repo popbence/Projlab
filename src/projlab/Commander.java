@@ -1,5 +1,8 @@
 package projlab;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Set;
@@ -22,7 +25,7 @@ public class Commander {
 	
 	public void interpret(String input) {
 		String[] params = input.split(" ");
-		if(objects.isEmpty() && !params[0].equalsIgnoreCase("createmap")) System.out.println("please, create a map first!");
+		if((objects.isEmpty() && !params[0].equalsIgnoreCase("createmap")) && (!params[0].equalsIgnoreCase("load"))) System.out.println("please, create a map first!");
 		else {
 			switch (params[0]) {
 			case "createmap": createmap(params); break;
@@ -87,7 +90,7 @@ public class Commander {
 					p.SetField(f);
 					objects.put("@" + params[1], p);
 					positions.put("@" + params[1], params[3]);
-					System.out.println("Your Plarbear has been named: @" + params[1] );
+					System.out.println("Your Polarbear has been named: @" + params[1] );
 					break;
 				}
 			}
@@ -335,7 +338,58 @@ public class Commander {
 	}
 	
 	private void load(String[] params) {
-		
+			if(params[1].equalsIgnoreCase("all")) {
+				int i = 1;
+				File f = new File("teszt-" + i + "-inp.txt");
+				while(f.exists()) {
+					try
+					  {
+						System.out.println("\tteszt-" + i + "-inp.txt file:");
+						BufferedReader reader = new BufferedReader(new FileReader("teszt-" + i + "-inp.txt"));
+					    if(reader!=null) {
+					    	String line;
+						    while ((line = reader.readLine()) != null)
+						    {
+						      System.out.println("\t\t" + line);
+						      interpret(line);
+						    }
+						    reader.close();
+					    }
+					  }
+					  catch (Exception e)
+					  {
+					    System.err.format("Exception occurred trying to read " + params[1]);
+					    e.printStackTrace();
+					  } 
+					i++;
+					f = new File("teszt-" + i + "-inp.txt");
+				}
+			}
+			else {
+				if(!params[1].contains(".txt")) params[1] = params[1].concat(".txt");
+				File f = new File(params[1]);
+				if(f.exists()) {
+					try
+					  {
+						BufferedReader reader = new BufferedReader(new FileReader(params[1]));
+					    if(reader!=null) {
+					    	String line;
+						    while ((line = reader.readLine()) != null)
+						    {
+						      System.out.println("\t" + line);
+						      interpret(line);
+						    }
+						    reader.close();
+					    }
+					  }
+					  catch (Exception e)
+					  {
+					    System.err.format("Exception occurred trying to read " + params[1]);
+					    e.printStackTrace();
+					  }  
+				}
+				else System.out.println("The specified file doesn't exist in the project folder!: " + params[1]);
+			}
 	}
 	
 	private void setneig(String[] params) {
