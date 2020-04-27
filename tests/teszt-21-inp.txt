@@ -1,0 +1,13 @@
+createmap 4
+setfield f_3 unstable 4
+setfield f_4 hole
+setneig f_1 f_2 1 1
+setneig f_1 u_3 2 1
+setneig f_1 h_4 3 1
+character Ex1 ex f_1
+
+playeruse Ex1 ability 1
+playeruse Ex1 ability 2
+playeruse Ex1 ability 3
+
+data Ex1

@@ -3,3 +3,4 @@ snow ne legyen negatív (pl: ásás után)
 17: a karaktereknél nem regisztrálja át a fieldet a rope(?, valami)
 18: igloo és tent ne legyen egymás mellett
 19: honnan lehet tudni, hogy win, lépés(?)
+21: maxplayert nem ír ki
