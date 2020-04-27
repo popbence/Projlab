@@ -113,4 +113,10 @@ public class Controller {
 	public void AddField(Field f) {
 		fields.add(f);
 	}
+	
+	public static void SnowStormAll() {
+		for(Field f: fields) {
+			f.AddSnow(3);
+		}
+	}
 }
