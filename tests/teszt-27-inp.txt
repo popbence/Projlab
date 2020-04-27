@@ -1,0 +1,6 @@
+createmap 1
+character E e f_1
+character E2 e f_1
+endround E
+
+data E
