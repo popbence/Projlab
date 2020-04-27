@@ -1,0 +1,20 @@
+createmap 2
+setfield f_2 hole
+setneig f_1 h_2 1 1
+setitem f_1 suit
+character E1 e f_1
+
+playeruse E1 pick
+playeruse E1 item 0
+playeruse E1 ability
+playeruse E1 ability
+
+data E1
+data f_1
+
+endround E1
+step E1 1
+endround E1
+playeruse E1 ability
+
+data f_2
