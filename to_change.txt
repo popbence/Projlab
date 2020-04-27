@@ -1,0 +1,4 @@
+stepre léphet munkapont hiányában is
+snow ne legyen negatív (pl: ásás után)
+13: a karaktereknél nem regisztrálja át a fieldet a rope(?, valami)
+14: igloo és tent ne legyen egymás mellett

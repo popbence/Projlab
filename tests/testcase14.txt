@@ -1,0 +1,13 @@
+createmap 2
+setneig f_1 f_2 1 1
+setitem f_1 tentbuilder
+character E e f_1
+
+playeruse E pick
+playeruse E ability
+playeruse E item 0
+step E 1
+playeruse E item 0
+
+data f_1
+data f_2
