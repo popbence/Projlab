@@ -1,0 +1,72 @@
+createmap 13
+setfield f_6 hole
+setfield f_7 hole
+setfield f_8 hole
+setfield f_9 hole
+setfield f_10 hole
+setfield f_11 unstable 2
+setfield f_12 unstable 2
+setfield f_13 unstable 2
+
+character M p f_1
+setitem f_3 part
+setitem f_2 part
+setitem u_11 part
+setitem f_4 shovel
+character K1 ex u_13
+character K2 ex f_5
+character E e u_12
+
+setneig f_1 h_6 1 4
+setneig f_1 f_2 2 5
+setneig f_1 h_7 3 5
+setneig f_1 u_11 4 1
+setneig f_2 u_12 1 4
+setneig f_2 h_8 2 4
+setneig f_2 f_4 3 6
+setneig f_2 h_7 4 1
+setneig f_2 h_6 6 3
+setneig f_3 f_4 1 4
+setneig f_3 h_10 2 5
+setneig f_3 u_11 3 3
+setneig f_3 h_7 4 3
+setneig f_4 h_8 1 3
+setneig f_4 u_13 2 5
+setneig f_4 h_10 3 6
+setneig f_4 h_7 5 2
+setneig f_5 u_13 3 1
+setneig f_5 h_8 4 1
+setneig f_5 u_12 5 2
+setneig f_5 h_9 6 3
+setneig h_6 u_12 2 5
+setneig h_7 u_11 4 2
+setneig h_8 u_13 2 6
+setneig h_8 u_12 5 3
+setneig h_9 u_12 4 1
+setneig h_10 u_13 1 4
+
+data f_1
+
+data f_2
+
+data f_3
+
+data f_4
+
+data f_5
+
+data h_6
+
+data h_7
+
+data h_8
+
+data h_9
+
+data h_10
+
+data u_11
+
+data u_12
+
+data u_13
