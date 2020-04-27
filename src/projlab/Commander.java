@@ -433,7 +433,7 @@ public class Commander {
 	}
 	
 	private void makestorm(String[] params) {
-		c.SnowStorm();
+		c.SnowStormAll();
 	}
 	
 	private void endround(String[] params) {
