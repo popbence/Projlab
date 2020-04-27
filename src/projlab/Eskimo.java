@@ -6,7 +6,9 @@ package projlab;
  */
 public class Eskimo extends Player{
 	
-	
+	/**
+	 * ctor
+	 */
 	public Eskimo() {
 		SetTemp(5);
 		SetWork(4);

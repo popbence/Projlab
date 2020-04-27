@@ -201,21 +201,30 @@ public abstract class Player extends Character{
 	public ArrayList<Item> GetItems(){
 		return items;
 	}
-	
+	/**
+	 * Modifies the attributes when falls in water
+	 */
 	 public void FellInWater() {
 		 SetWork(0);
 		 SetTemp(1);
 		 SetDrowning(1);
 	 }
-	 
+	 /**
+	  * returns true, if the drowning attribute is 1 or 2
+	  */
 	 public boolean Rescuable() {
 		 return (drowning == 1 || drowning == 2);
 	 }
-	 
+	 /**
+	  * Reduces the temperature of the Player
+	  */
 	 public void SnowFall() {
 		 AddTemp(-1);
 	 }
-	 
+	 /**
+	  * Set the temperature to the given amount
+	  * @param t the given amount
+	  */
 	 public void SetTemp(int t) {
 		 temperature = t;
 	 }

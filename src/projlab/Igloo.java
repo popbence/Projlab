@@ -20,7 +20,10 @@ public class Igloo {
 		health -= s;
 		return (health <= 0);
 	}
-	
+	/**
+	 * Returns with false, the igloo is not invadable
+	 * @return false
+	 */
 	public boolean Invadable() {
 		return false;
 	}
