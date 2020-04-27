@@ -19,9 +19,13 @@ public class Controller {
 	 * All of the players
 	 */
 	private static ArrayList<Player> players = new ArrayList<Player>();
-	
+	/**
+	 * List of tents
+	 */
 	private static ArrayList<Tent> tents = new ArrayList<Tent>();
-	
+	/**
+	 * The polarbear
+	 */
 	private static PolarBear polarbear = new PolarBear(); 
 	/**
 	 * It initializes the game
@@ -109,11 +113,16 @@ public class Controller {
 	public void AddPlayer(Player p) {
 		players.add(p);
 	}
-	
+	/**
+	 * Add an Field to the fields list
+	 * @param f the Field
+	 */
 	public void AddField(Field f) {
 		fields.add(f);
 	}
-	
+	/**
+	 * PROTO only! Adds snow to all fields
+	 */
 	public static void SnowStormAll() {
 		for(Field f: fields) {
 			f.AddSnow(3);

@@ -26,7 +26,10 @@ public class Field {
 	 * List of the neighbourning fields
 	 */
 	private ArrayList<Field> neighbours = new ArrayList<Field>();
-	
+	/**
+	 * True, if a polarbear stands on the field and the field
+	 * doesn't have an igloo built on.
+	 */
 	private boolean deadly = false;
 	
 	/**
@@ -138,7 +141,10 @@ public class Field {
 	public Item GetItem() {
 		return item;
 	}
-	
+	/**
+	 * Places an item on the field
+	 * @param i the Item
+	 */
 	public void SetItem(Item i) {
 		item = i;
 	}
@@ -150,14 +156,23 @@ public class Field {
 	public ArrayList<Character> GetCharacters(){
 		return characters;
 	}
-	
+	/**
+	 * Set the deadly attribute to the opposite
+	 */
 	public void SetDeadly() {
 		deadly = !deadly;
 	}
-	
+	/**
+	 * Returns with the igloo
+	 * @return igloo
+	 */
 	public Igloo GetIgloo() {
 		return igloo;
 	}
+	/**
+	 * returns with the number of the neighbours
+	 * @return neighbours' size
+	 */
 	public int GetNeighboursSize() {
 		return neighbours.size();
 	}

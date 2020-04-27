@@ -5,9 +5,13 @@ package projlab;
  * Implements the Explorer character
  */
 public class Explorer extends Player{
-	
+	/**
+	 * The last explored field's capacity
+	 */
 	int lastExploredFieldCapacity = 0;
-	
+	/**
+	 * ctor
+	 */
 	public Explorer() {
 		SetTemp(4);
 		SetWork(4);
@@ -26,7 +30,10 @@ public class Explorer extends Player{
 			this.AddWork(-1);
 		}
 	}
-	
+	/**
+	 * Returns with the last explored field's capacity
+	 * @return lastExploredFieldCapacity
+	 */
 	public int GetLastExploredFieldCapacity() {
 		return lastExploredFieldCapacity;
 	}
