@@ -47,15 +47,19 @@ public class Commander {
 	}
 	
 	private void createmap(String[] params) {
-		if(params.length%2 != 0 || Integer.parseInt(params[1]) < 1) System.out.println("wrong parameters");
-		else {
-			c.Init();
-			objects = new Hashtable<String, Object>();
-			for(int i=0;i<Integer.parseInt(params[1]);i++) {
-				Field f = new Field();
-				objects.put("f_" + (i+1), f);
-				c.AddField(f);
+		try {
+			if(params.length%2 != 0 || Integer.parseInt(params[1]) < 1) System.out.println("wrong parameters");
+			else {
+				c.Init();
+				objects = new Hashtable<String, Object>();
+				for(int i=0;i<Integer.parseInt(params[1]);i++) {
+					Field f = new Field();
+					objects.put("f_" + (i+1), f);
+					c.AddField(f);
+				}
 			}
+		}catch(Exception e) {
+			System.out.println("The second parameter is not a number!");
 		}
 	}
 	
@@ -98,34 +102,39 @@ public class Commander {
 	}
 	
 	private void setfield(String[] params) {
-		if(params.length<3) System.out.println("wrong parameters!");
-		else {
-			switch(params[2]) {
-			case "hole": {
-					if(objects.containsKey(params[1])) {
-						objects.put(params[1].replace("f", "h"), new Hole());
-						objects.remove(params[1]);
-						System.out.println(params[1] + "has been renamed:" + params[1].replace("f", "h"));
-					}
-					else System.out.println("there's no field with this ID: " + params[1]);
-					break;
-				}
-			case "unstable": {
-				if(params.length!=4) System.out.println("not enough parameters for *unstable*");
-				else {
-						Unstable u = new Unstable();
-						u.SetMaxCharacter(Integer.parseInt(params[3]));
+		try {
+			if(params.length<3) System.out.println("wrong parameters!");
+			else {
+				switch(params[2]) {
+				case "hole": {
 						if(objects.containsKey(params[1])) {
-							objects.put(params[1].replace("f", "u"), u);
+							objects.put(params[1].replace("f", "h"), new Hole());
 							objects.remove(params[1]);
-							System.out.println(params[1] + " has been renamed: " + params[1].replace("f", "u"));
+							System.out.println(params[1] + "has been renamed:" + params[1].replace("f", "h"));
 						}
 						else System.out.println("there's no field with this ID: " + params[1]);
 						break;
 					}
+				case "unstable": {
+					if(params.length!=4) System.out.println("not enough parameters for *unstable*");
+					else {
+							Unstable u = new Unstable();
+							u.SetMaxCharacter(Integer.parseInt(params[3]));
+							if(objects.containsKey(params[1])) {
+								objects.put(params[1].replace("f", "u"), u);
+								objects.remove(params[1]);
+								System.out.println(params[1] + " has been renamed: " + params[1].replace("f", "u"));
+							}
+							else System.out.println("there's no field with this ID: " + params[1]);
+							break;
+						}
+					}
 				}
 			}
+		}catch(Exception e) {
+			System.out.println("The fourth parameter is not a number!");
 		}
+		
 	}
 	
 	private void setitem(String[] params) {
@@ -193,25 +202,29 @@ public class Commander {
 	}
 	
 	private void setsnow(String[] params) {
-		if(params.length<3) System.out.println("wrong parameters!");
-		else {
-			if(params[2].equalsIgnoreCase("all")) {
-				Set<String> keys = objects.keySet();
-				Field f;
-				for(String key: keys) {
-					if(key.contains("f_") || key.contains("h_") || key.contains("u_")) {
-						f = (Field)objects.get(key);
-						f.AddSnow(Integer.parseInt(params[1]));
+		try {
+			if(params.length<3) System.out.println("wrong parameters!");
+			else {
+				if(params[2].equalsIgnoreCase("all")) {
+					Set<String> keys = objects.keySet();
+					Field f;
+					for(String key: keys) {
+						if(key.contains("f_") || key.contains("h_") || key.contains("u_")) {
+							f = (Field)objects.get(key);
+							f.AddSnow(Integer.parseInt(params[1]));
+						}
 					}
 				}
-			}
-			else {
-				if(objects.containsKey(params[2])) {
-					Field f = (Field)objects.get(params[2]);
-					f.AddSnow(Integer.parseInt(params[1]));
+				else {
+					if(objects.containsKey(params[2])) {
+						Field f = (Field)objects.get(params[2]);
+						f.AddSnow(Integer.parseInt(params[1]));
+					}
+					else System.out.println("there's no field with this ID: " + params[2]);
 				}
-				else System.out.println("there's no field with this ID: " + params[2]);
 			}
+		}catch(Exception e) {
+			System.out.println("The second parameter is not a number!");
 		}
 	}
 	
@@ -242,31 +255,35 @@ public class Commander {
 	}
 	
 	private void playeruse(String[] params) {
-		if(params.length<3) System.out.println("wrong parameters!");
-		else {
-			if(objects.containsKey(params[1])) {
-				Player pl = (Player)objects.get(params[1]);
-				switch(params[2]) {
-				case "item": {
-					pl.UseItem(Integer.parseInt(params[3]));
-					break;
+		try {
+			if(params.length<3) System.out.println("wrong parameters!");
+			else {
+				if(objects.containsKey(params[1])) {
+					Player pl = (Player)objects.get(params[1]);
+					switch(params[2]) {
+					case "item": {
+						pl.UseItem(Integer.parseInt(params[3]));
+						break;
+					}
+					case "ability": {
+						if(params.length<4) pl.UseAbility(1);
+						else pl.UseAbility(Integer.parseInt(params[3]));
+						break;
+					}
+					case "dig": {
+						pl.Dig();
+						break;
+					}
+					case "pick": {
+						pl.Pick();
+						break;
+					}
+					}
 				}
-				case "ability": {
-					if(params.length<4) pl.UseAbility(1);
-					else pl.UseAbility(Integer.parseInt(params[3]));
-					break;
-				}
-				case "dig": {
-					pl.Dig();
-					break;
-				}
-				case "pick": {
-					pl.Pick();
-					break;
-				}
-				}
+				else System.out.println("there's no player with this ID: " + params[2]);
 			}
-			else System.out.println("there's no player with this ID: " + params[2]);
+		}catch(Exception e) {
+			System.out.println("The fourth parameter is not a number!");
 		}
 	}
 	
@@ -340,12 +357,12 @@ public class Commander {
 	private void load(String[] params) {
 			if(params[1].equalsIgnoreCase("all")) {
 				int i = 1;
-				File f = new File("teszt-" + i + "-inp.txt");
+				File f = new File("tests/teszt-" + i + "-inp.txt");
 				while(f.exists()) {
 					try
 					  {
 						System.out.println("\tteszt-" + i + "-inp.txt file:");
-						BufferedReader reader = new BufferedReader(new FileReader("teszt-" + i + "-inp.txt"));
+						BufferedReader reader = new BufferedReader(new FileReader("tests/teszt-" + i + "-inp.txt"));
 					    if(reader!=null) {
 					    	String line;
 						    while ((line = reader.readLine()) != null)
@@ -362,7 +379,7 @@ public class Commander {
 					    e.printStackTrace();
 					  } 
 					i++;
-					f = new File("teszt-" + i + "-inp.txt");
+					f = new File("tests/teszt-" + i + "-inp.txt");
 				}
 			}
 			else {
@@ -393,22 +410,26 @@ public class Commander {
 	}
 	
 	private void setneig(String[] params) {
-		if(params.length<4) System.out.println("wrong parameters!");
-		else {
-			if(objects.containsKey(params[1])) {
-				if(objects.containsKey(params[2])) {
-				Field f1 = (Field)objects.get(params[1]);
-				Field f2 = (Field)objects.get(params[2]);
-				
-				f1.SetNeighbour(Integer.parseInt(params[3]), f2);
-				f2.SetNeighbour(Integer.parseInt(params[4]), f1);
-				
-				neighbours.add(params[1] + " " + params[2] + " " + params[3] + " " + params[4]);
+		try {
+			if(params.length<5) System.out.println("wrong parameters!");
+			else {
+				if(objects.containsKey(params[1])) {
+					if(objects.containsKey(params[2])) {
+					Field f1 = (Field)objects.get(params[1]);
+					Field f2 = (Field)objects.get(params[2]);
+					
+					f1.SetNeighbour(Integer.parseInt(params[3]), f2);
+					f2.SetNeighbour(Integer.parseInt(params[4]), f1);
+					
+					neighbours.add(params[1] + " " + params[2] + " " + params[3] + " " + params[4]);
+					}
+					else System.out.println("there's no field with this ID: " + params[2]);
+					}
+				else System.out.println("there's no field with this ID: " + params[1]);
 				}
-				else System.out.println("there's no field with this ID: " + params[2]);
-				}
-			else System.out.println("there's no field with this ID: " + params[1]);
-			}
+		}catch(Exception e) {
+			System.out.println("The fourth/fifth parameter is not a number!: " + params[3] + " " + params[4]);
+		}
 	}
 	
 	private void makestorm(String[] params) {
