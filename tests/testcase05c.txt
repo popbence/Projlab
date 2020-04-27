@@ -1,0 +1,9 @@
+createmap 1
+
+character Ex1 ex f_1
+makestorm
+makestorm
+makestorm
+makestorm
+
+data Ex1

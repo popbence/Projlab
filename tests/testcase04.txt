@@ -1,0 +1,14 @@
+createmap 3
+setfield f_2 unstable 1
+setfield f_3 unstable 0
+setneig f_1 u_2 1 1
+setneig f_1 u_3 2 2
+character E1 e f_1
+character E2 e f_1
+data E1
+data E2
+
+step E1 1
+step E2 2
+data E1
+data E2

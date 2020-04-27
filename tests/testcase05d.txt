@@ -1,0 +1,8 @@
+createmap 1
+
+character E1 e f_1
+setitem f_1 igloo
+makestorm
+
+data f_1
+data E1

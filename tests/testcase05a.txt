@@ -1,0 +1,5 @@
+createmap 1
+
+makestorm
+
+data f_1

@@ -1,0 +1,19 @@
+createmap 2
+setneig f_1 f_2 1 1
+setsnow 1 f_1
+setsnow 1 f_2
+character E1 e f_1
+character Ex2 ex f_2
+data E1
+data Ex2
+
+step Ex2 1
+step Ex2 1
+step Ex2 1
+step Ex2 1
+
+playeruse E1 dig
+playeruse Ex2 dig
+
+data f_1
+data f_2
