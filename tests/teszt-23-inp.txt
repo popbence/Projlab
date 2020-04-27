@@ -1,0 +1,20 @@
+createmap 4
+setneig f_1 f_2 1 1
+setneig f_3 f_4 1 1
+character E1 e f_1
+character Ex1 e f_3
+
+step E1 1
+step E1 1
+step E1 1
+step E1 1
+
+step Ex1 1
+step Ex1 1
+step Ex1 1
+step Ex1 1
+
+playeruse E1 ability
+data f_1
+
+playeruse Ex1 ablility
