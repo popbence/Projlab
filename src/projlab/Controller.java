@@ -55,7 +55,7 @@ public class Controller {
 	 * Not used in skeleton
 	 */
 	public static void GameOver() {
-	
+		System.out.println("Game Over!");
 	}
 	/**
 	 * Ends the game if the players won
