@@ -21,13 +21,17 @@ public class Rope extends Item {
 			Field fi = f1.GetNeighbour(i);
 			if(fi != null) {
 				ArrayList<Character> characters = fi.GetCharacters();
+				ArrayList<Character> cToRescue = new ArrayList<>();
 				for(Character c : characters) {
 					if(c.Rescuable()) {
-						fi.RemoveCharacter(c);
-						Player p = (Player)c;
-						p.SetDrowning(0);
-						f1.AddCharacter(c);
+						cToRescue.add(c);
 					}
+				}
+				for (Character c : cToRescue){
+					fi.RemoveCharacter(c);
+					Player p = (Player)c;
+					p.SetDrowning(0);
+					f1.AddCharacter(c);
 				}
 			}
 			

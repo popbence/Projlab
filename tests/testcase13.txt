@@ -1,0 +1,33 @@
+createmap 6
+setfield f_6 hole
+setfield f_5 hole
+setfield f_4 unstable 1
+
+setneig f_1 f_2 1 1
+setneig f_1 f_3 2 2
+setneig f_1 u_4 3 3
+setneig f_1 h_5 4 4
+setneig f_1 h_6 5 5
+setneig f_3 h_6 1 1
+
+character EU1 e u_4
+character EU2 e u_4
+character EH e h_5
+character EF e f_2
+setitem f_3 suit
+character ES e f_3
+setitem f_1 rope
+character E e f_1
+
+playeruse ES pick
+playeruse ES item 0
+step ES 1
+
+playeruse E pick
+playeruse E item 0
+
+data f_1
+data f_3
+data u_4
+data h_5
+data h_6
