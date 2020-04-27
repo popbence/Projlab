@@ -1,0 +1,10 @@
+createmap 3
+setneig f_1 f_2 1 2
+setneig f_2 f_3 1 2
+character P1 p f_1
+character E1 e f_2
+character E2 e f_3
+
+playeruse E1 ablility
+step P1 1
+step P1 1

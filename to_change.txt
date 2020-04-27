@@ -4,3 +4,4 @@ snow ne legyen negatív (pl: ásás után)
 18: igloo és tent ne legyen egymás mellett
 19: honnan lehet tudni, hogy win, lépés(?)
 21: maxplayert nem ír ki
+24: can't step PolarBear
