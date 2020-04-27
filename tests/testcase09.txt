@@ -1,0 +1,7 @@
+createmap 1
+setitem f_1 suit
+character E e f_1
+playeruse E pick
+playeruse E item 0
+
+data E
